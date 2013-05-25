@@ -16,8 +16,8 @@ import org.powerbot.game.api.util.Timer;
 
 
 @Manifest
-(name = "Quick Mine", description = "Easy, simple miner.", 
-version = 1.10, authors = { "Thurs" })
+(name = "Exor's Woodcutter", description = "Chops regular trees", 
+version = 1.10, authors = { "Exorcism" })
 
 public class Main extends ActiveScript implements PaintListener, MessageListener{
 
