@@ -40,75 +40,73 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 
 			@Override
 			public void run() {
-				GUI gui = new GUI();
-				gui.setVisible(true);
-
+				new GUI().setVisible(true);
 			}
 
 		});
 		// Tar
-		nodes.add(new Pickup());
+		NODES.add(new Pickup());
 		// Flax
-		nodes.add(new FlaxPicking());
-		nodes.add(new FlaxBanking());
-		nodes.add(new ToFlax());
-		nodes.add(new ToBank());
+		NODES.add(new FlaxPicking());
+		NODES.add(new FlaxBanking());
+		NODES.add(new ToFlax());
+		NODES.add(new ToBank());
 		// Kit opening
-		nodes.add(new BankKits());
-		nodes.add(new OpenKits());
-		nodes.add(new BankKitsOnStart());
+		NODES.add(new BankKits());
+		NODES.add(new OpenKits());
+		NODES.add(new BankKitsOnStart());
 		// Flax spinning
-		nodes.add(new Spinning());
-		nodes.add(new StringBanking());
-		nodes.add(new ToBank1());
-		nodes.add(new ToSpinner());
-		nodes.add(new ClimbLadder());
-		nodes.add(new ClimbDownLadder());
-		nodes.add(new Withdraw());
-		nodes.add(new GlitchFix());
+		NODES.add(new Spinning());
+		NODES.add(new StringBanking());
+		NODES.add(new ToBank1());
+		NODES.add(new ToSpinner());
+		NODES.add(new ClimbLadder());
+		NODES.add(new ClimbDownLadder());
+		NODES.add(new Withdraw());
+		NODES.add(new GlitchFix());
 		// Drink brews
-		nodes.add(new BankBrewsOnStart());
-		nodes.add(new BankBrews());
-		nodes.add(new DrinkBrews());
+		NODES.add(new BankBrewsOnStart());
+		NODES.add(new BankBrews());
+		NODES.add(new DrinkBrews());
 		// pickup bones
-		nodes.add(new BoneBank());
-		nodes.add(new PickBones());
-		nodes.add(new WalkToBones());
-		nodes.add(new WalkToLadder());
-		nodes.add(new FixDaGlitch());
+		NODES.add(new BoneBank());
+		NODES.add(new PickBones());
+		NODES.add(new WalkToBones());
+		NODES.add(new WalkToLadder());
+		NODES.add(new FixDaGlitch());
 		// Cow hide pickup
-		nodes.add(new HideBank());
-		nodes.add(new PickupHides());
-		nodes.add(new WalkToHides());
-		nodes.add(new HidesToBank());
-		nodes.add(new AntiBan());
+		NODES.add(new HideBank());
+		NODES.add(new PickupHides());
+		NODES.add(new WalkToHides());
+		NODES.add(new HidesToBank());
+		NODES.add(new AntiBan());
 		// Feather pickup
-		nodes.add(new PickupFeathers());
-		nodes.add(new FeatherBank());
-		nodes.add(new WalkToFeathers());
-		nodes.add(new FeathersToBank());
+		NODES.add(new PickupFeathers());
+		NODES.add(new FeatherBank());
+		NODES.add(new WalkToFeathers());
+		NODES.add(new FeathersToBank());
 		// Unicorns
-		nodes.add(new KillUnicorns());
-		nodes.add(new BankToUnicorns());
-		nodes.add(new UnicornsToBank());
-		nodes.add(new BankHorns());
-		nodes.add(new WalkBackOnDeath());
+		NODES.add(new KillUnicorns());
+		NODES.add(new BankToUnicorns());
+		NODES.add(new UnicornsToBank());
+		NODES.add(new BankHorns());
+		NODES.add(new WalkBackOnDeath());
 		// Vial Filling
-		nodes.add(new VialFiller());
-		nodes.add(new VialBanker());
-		nodes.add(new InitialVialBank());
+		NODES.add(new VialFiller());
+		NODES.add(new VialBanker());
+		NODES.add(new InitialVialBank());
 		// Crushing Choc bars
-		nodes.add(new CrushBars());
-		nodes.add(new BankBars());
-		nodes.add(new InitialBankBars());
+		NODES.add(new CrushBars());
+		NODES.add(new BankBars());
+		NODES.add(new InitialBankBars());
 		// Wine Drinking
-		nodes.add(new DrinkWine());
-		nodes.add(new BankWine());
-		nodes.add(new BankWineOnStart());
+		NODES.add(new DrinkWine());
+		NODES.add(new BankWine());
+		NODES.add(new BankWineOnStart());
 		// Pie Eating
-		nodes.add(new BankPiesOnStart());
-		nodes.add(new BankPie());
-		nodes.add(new EatThePie());
+		NODES.add(new BankPiesOnStart());
+		NODES.add(new BankPie());
+		NODES.add(new EatThePie());
 
 	}
 
@@ -139,13 +137,11 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 	}
 
 	// Node
-	final LinkedList<Node> nodes = new LinkedList<Node>();
+	private static final LinkedList<Node> NODES = new LinkedList<Node>();
 
 	@Override
 	public int loop() {
-		if (nodes == null || nodes.size() <= 0)
-			return Random.nextInt(150, 250);
-		for (final Node job : nodes.toArray(new Node[nodes.size()])) {
+		for (final Node job :(new Node[NODES.size()])) {
 			if (job.activate()) {
 				getContainer().submit(job);
 				job.join();
