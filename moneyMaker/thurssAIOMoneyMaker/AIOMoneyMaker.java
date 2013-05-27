@@ -141,7 +141,7 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 
 	@Override
 	public int loop() {
-		for (final Node job :(new Node[NODES.size()])) {
+		for (final Node job : NODES.toArray(new Node[NODES.size()])) {
 			if (job.activate()) {
 				getContainer().submit(job);
 				job.join();
