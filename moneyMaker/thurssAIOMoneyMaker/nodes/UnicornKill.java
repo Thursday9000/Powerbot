@@ -40,10 +40,11 @@ public class UnicornKill {
 					}
 				}
 				NPC unicorn = NPCs.getNearest(resources.Variables.UNICORN_ID);
-				if (unicorn != null)
+				if (unicorn != null) {
 					if (!unicorn.isOnScreen()) {
 						Camera.turnTo(unicorn);
 						Camera.setPitch(false);
+
 					} else {
 						resources.Variables.method = "Killing Unicorns...";
 						unicorn.interact("Attack", "Unicorn");
@@ -52,6 +53,7 @@ public class UnicornKill {
 							Task.sleep(3000, 3200);
 						}
 					}
+				}
 			}
 			if (GroundItems.getLoaded(resources.Variables.HORN_ID) != null
 					&& resources.Variables.UNICORN_AREA.contains(Players
@@ -98,8 +100,6 @@ public class UnicornKill {
 			resources.Variables.status = "Walking...";
 			Walking.newTilePath(resources.Variables.BANK_TO_UNICORNS)
 					.traverse();
-			{
-			}
 		}
 
 	}
@@ -158,7 +158,9 @@ public class UnicornKill {
 		@Override
 		public void execute() {
 			resources.Variables.status = "Banking...";
-			Bank.open();
+			if (!Bank.isOpen()) {
+				Bank.open();
+			}
 			Timer t = new Timer(4500);
 			while (t.isRunning()) {
 				Task.sleep(3000, 6000);
