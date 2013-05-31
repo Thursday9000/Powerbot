@@ -8,7 +8,6 @@ import java.util.LinkedList;
 import javax.swing.*;
 
 
-
 import org.powerbot.core.event.listeners.PaintListener;
 import org.powerbot.core.script.ActiveScript;
 import org.powerbot.core.script.job.state.Node;
@@ -17,10 +16,14 @@ import org.powerbot.game.api.methods.input.Mouse;
 import org.powerbot.game.api.methods.input.Mouse.Speed;
 import org.powerbot.game.api.util.Random;
 
+import org.thurs.aiomoney.resources.Variables;
+
+
 import org.thurs.aiomoney.resources.GUI;
 
 @Manifest(authors = { "Thurs" }, name = "Thurs's AIO Money Maker", description = "Makes money so you don't have to!", version = 1)
 public class AIOMoneyMaker extends ActiveScript implements PaintListener {
+	Variables var = new Variables();
 
 	// onStart
 	@Override
@@ -44,17 +47,17 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 	private final Font font2 = new Font("Arial", 0, 13);
 
 	public void onRepaint(Graphics g1) {
-		org.thurs.aiomoney.resources.Variables.runTime.toElapsedString();
+		var.runTime.toElapsedString();
 		Graphics2D g = (Graphics2D) g1;
 		g.setFont(font1);
 		g.setColor(color1);
 		g.drawString("Thurs's Money Maker", 25, 75);
 		g.setFont(font2);
 		g.drawString(
-				"Run Time: " + org.thurs.aiomoney.resources.Variables.runTime.toElapsedString(),
+				"Run Time: " + var.runTime.toElapsedString(),
 				25, 100);
-		g.drawString("Method: " + org.thurs.aiomoney.resources.Variables.method, 25, 125);
-		g.drawString("Status: " + org.thurs.aiomoney.resources.Variables.status, 25, 150);
+		g.drawString("Method: " + var.method, 25, 125);
+		g.drawString("Status: " + var.status, 25, 150);
 
 		g.setColor(Color.RED);
 		g.drawLine(Mouse.getX() - 5, Mouse.getY() - 5, Mouse.getX() + 5,

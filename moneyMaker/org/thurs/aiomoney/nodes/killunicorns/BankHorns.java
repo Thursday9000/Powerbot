@@ -6,19 +6,20 @@ import org.powerbot.core.script.util.Timer;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.widget.Bank;
+import org.thurs.aiomoney.resources.Variables;
 
 public class BankHorns extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.HORN_ID) >= 28
-				&& SceneEntities.getLoaded(org.thurs.aiomoney.resources.Variables.LUMBY_BOX) != null
-				&& org.thurs.aiomoney.resources.Variables.unicornKill;
+		return Inventory.getCount(var.HORN_ID) >= 28
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
+				&& var.unicornKill;
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Banking...";
+		var.status = "Banking...";
 		if (!Bank.isOpen()) {
 			Bank.open();
 

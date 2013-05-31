@@ -9,16 +9,17 @@ import org.powerbot.game.api.methods.node.GroundItems;
 import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.wrappers.node.GroundItem;
+import org.thurs.aiomoney.resources.Variables;
 
 public class Pickup extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
 		return Players.getLocal().isIdle()
-				&& org.thurs.aiomoney.resources.Variables.TAR_LOCATION.contains(Players
+				&& var.TAR_LOCATION.contains(Players
 						.getLocal())
-				&& GroundItems.getLoaded(org.thurs.aiomoney.resources.Variables.TAR_ID) != null
-				&& org.thurs.aiomoney.resources.Variables.tarPickup;
+				&& GroundItems.getLoaded(var.TAR_ID) != null
+				&& var.tarPickup;
 	}
 
 	@Override
@@ -26,7 +27,7 @@ public class Pickup extends Node {
 		GroundItem tar = GroundItems.getNearest(new Filter<GroundItem>() {
 
 			public boolean accept(GroundItem e) {
-				return e.getId() == org.thurs.aiomoney.resources.Variables.TAR_ID;
+				return e.getId() == var.TAR_ID;
 			}
 
 		});
@@ -48,7 +49,7 @@ public class Pickup extends Node {
 				Task.sleep(12);
 			}
 		}
-		org.thurs.aiomoney.resources.Variables.status = "Taking Tar...";
+		var.status = "Taking Tar...";
 	}
 
 }

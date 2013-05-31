@@ -6,22 +6,23 @@ import org.powerbot.core.script.util.Timer;
 import org.powerbot.game.api.methods.Widgets;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.tab.Inventory;
+import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkWine extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.FULL_WINE) == 28
-				&& org.thurs.aiomoney.resources.Variables.VARROCK_BANK.contains(Players
+		return Inventory.getCount(var.FULL_WINE) == 28
+				&& var.VARROCK_BANK.contains(Players
 						.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.drinkWine
+				&& var.drinkWine
 				&& Players.getLocal().isIdle();
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Drinking Wine";
-		if (org.thurs.aiomoney.resources.Variables.VARROCK_BANK.contains(Players.getLocal())
+		var.status = "Drinking Wine";
+		if (var.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			for (int x = 0; x < 28; x++) {
 				Widgets.get(679, 0).getChild(x)

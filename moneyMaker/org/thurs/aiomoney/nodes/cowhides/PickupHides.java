@@ -9,22 +9,24 @@ import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.GroundItem;
+import org.thurs.aiomoney.resources.Variables;
 
 //Pickup
 public class PickupHides extends Node {
+	Variables var = new Variables();
 	int hideCount = Inventory
-			.getCount(org.thurs.aiomoney.resources.Variables.COW_HIDES);
+			.getCount(var.COW_HIDES);
 
 	@Override
 	public boolean activate() {
-		return org.thurs.aiomoney.resources.Variables.COW_AREA.contains(Players
+		return var.COW_AREA.contains(Players
 				.getLocal())
 				&& Players.getLocal().isIdle()
 				&& GroundItems
-						.getLoaded(org.thurs.aiomoney.resources.Variables.COW_HIDES) != null
+						.getLoaded(var.COW_HIDES) != null
 				&& Inventory
-						.getCount(org.thurs.aiomoney.resources.Variables.COW_HIDES) < 29
-				&& org.thurs.aiomoney.resources.Variables.pickupHides;
+						.getCount(var.COW_HIDES) < 29
+				&& var.pickupHides;
 	}
 
 	@Override
@@ -33,7 +35,7 @@ public class PickupHides extends Node {
 		GroundItem hide = GroundItems.getNearest(new Filter<GroundItem>() {
 
 			public boolean accept(GroundItem e) {
-				return e.getId() == org.thurs.aiomoney.resources.Variables.COW_HIDES;
+				return e.getId() == var.COW_HIDES;
 			}
 		});
 		if (hide != null) {
@@ -49,7 +51,7 @@ public class PickupHides extends Node {
 				Camera.turnTo(hide);
 			}
 
-			org.thurs.aiomoney.resources.Variables.status = "Picking up cowhides...";
+			var.status = "Picking up cowhides...";
 		}
 	}
 }

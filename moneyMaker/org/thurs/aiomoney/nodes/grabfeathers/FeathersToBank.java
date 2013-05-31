@@ -7,23 +7,24 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class FeathersToBank extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.FEATHER_ID) == 28
-				&& org.thurs.aiomoney.resources.Variables.pickupFeathers;
+		return Inventory.getCount(var.FEATHER_ID) == 28
+				&& var.pickupFeathers;
 
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Walking...";
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.FEATHER_TO_BANK).traverse();
+		var.status = "Walking...";
+		Walking.newTilePath(var.FEATHER_TO_BANK).traverse();
 		{
 			if (SceneEntities.getLoaded(45206) != null
-					&& org.thurs.aiomoney.resources.Variables.FEATHER_AREA.contains(Players
+					&& var.FEATHER_AREA.contains(Players
 							.getLocal())) {
 				SceneEntities.getNearest(45206).interact("Open", "Gate");
 				Timer t = new Timer(1350);

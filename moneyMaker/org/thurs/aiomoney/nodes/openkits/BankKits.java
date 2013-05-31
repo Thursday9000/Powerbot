@@ -7,23 +7,24 @@ import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.widget.Bank;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class BankKits extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 28
 				&& SceneEntities
-						.getLoaded(org.thurs.aiomoney.resources.Variables.VARROCK_BANKER) != null
-				&& !Inventory.contains(org.thurs.aiomoney.resources.Variables.HUNTER_KIT)
-				&& org.thurs.aiomoney.resources.Variables.VARROCK_BANK.contains(Players
+						.getLoaded(var.VARROCK_BANKER) != null
+				&& !Inventory.contains(var.HUNTER_KIT)
+				&& var.VARROCK_BANK.contains(Players
 						.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.openKits == true;
+				&& var.openKits == true;
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Banking...";
+		var.status = "Banking...";
 		Bank.open();
 		Timer ti = new Timer(3350);
 		while (ti.isRunning()) {
@@ -34,10 +35,10 @@ public class BankKits extends Node {
 		while (t.isRunning() && Inventory.getCount() == 0) {
 			Task.sleep(12);
 		}
-		if (!Inventory.contains(org.thurs.aiomoney.resources.Variables.HUNTER_KIT)
+		if (!Inventory.contains(var.HUNTER_KIT)
 				&& Bank.isOpen()
-				&& Bank.getItem(org.thurs.aiomoney.resources.Variables.HUNTER_KIT) != null) {
-			Bank.withdraw(org.thurs.aiomoney.resources.Variables.HUNTER_KIT, 4);
+				&& Bank.getItem(var.HUNTER_KIT) != null) {
+			Bank.withdraw(var.HUNTER_KIT, 4);
 		}
 
 		Bank.close();

@@ -6,21 +6,22 @@ import org.powerbot.game.api.methods.Walking;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class FixDaGlitch extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return org.thurs.aiomoney.resources.Variables.BONE_COW_AREA.contains(Players
+		return var.BONE_COW_AREA.contains(Players
 				.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.pickupBones;
+				&& var.pickupBones;
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.BONE_COW_FIX).traverse();
+		Walking.newTilePath(var.BONE_COW_FIX).traverse();
 		if (SceneEntities.getLoaded(45212) != null
-				&& org.thurs.aiomoney.resources.Variables.COW_AREA.contains(Players
+				&& var.COW_AREA.contains(Players
 						.getLocal())) {
 			SceneEntities.getNearest(45212).interact("Open", "Gate");
 			Timer t = new Timer(1350);

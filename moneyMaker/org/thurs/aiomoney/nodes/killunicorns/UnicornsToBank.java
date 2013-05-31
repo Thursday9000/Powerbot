@@ -3,20 +3,21 @@ package org.thurs.aiomoney.nodes.killunicorns;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Walking;
 import org.powerbot.game.api.methods.tab.Inventory;
+import org.thurs.aiomoney.resources.Variables;
 
 public class UnicornsToBank extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.HORN_ID) == 28
-				&& org.thurs.aiomoney.resources.Variables.unicornKill;
+		return Inventory.getCount(var.HORN_ID) == 28
+				&& var.unicornKill;
 
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Walking...";
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.UNICORNS_TO_BANK)
+		var.status = "Walking...";
+		Walking.newTilePath(var.UNICORNS_TO_BANK)
 				.traverse();
 	}
 

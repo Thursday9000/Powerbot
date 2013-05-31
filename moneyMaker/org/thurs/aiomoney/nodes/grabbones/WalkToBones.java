@@ -3,19 +3,20 @@ package org.thurs.aiomoney.nodes.grabbones;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Walking;
 import org.powerbot.game.api.methods.tab.Inventory;
+import org.thurs.aiomoney.resources.Variables;
 
 public class WalkToBones extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.BONE_ID) == 0
-				&& org.thurs.aiomoney.resources.Variables.pickupBones;
+		return Inventory.getCount(var.BONE_ID) == 0
+				&& var.pickupBones;
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.BOX_TO_BONES).traverse();
-		org.thurs.aiomoney.resources.Variables.status = "Walking...";
+		Walking.newTilePath(var.BOX_TO_BONES).traverse();
+		var.status = "Walking...";
 	}
 
 }

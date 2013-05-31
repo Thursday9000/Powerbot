@@ -9,19 +9,21 @@ import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.GroundItem;
+import org.thurs.aiomoney.resources.Variables;
 
 public class PickBones extends Node {
-	int boneCount = Inventory.getCount(org.thurs.aiomoney.resources.Variables.BONE_ID);
+	Variables var = new Variables();
+	int boneCount = Inventory.getCount(var.BONE_ID);
 
 
 	@Override
 	public boolean activate() {
-		return org.thurs.aiomoney.resources.Variables.BONE_AREA.contains(Players.getLocal()
+		return var.BONE_AREA.contains(Players.getLocal()
 				)
 				&& Players.getLocal().isIdle()
-				&& GroundItems.getLoaded(org.thurs.aiomoney.resources.Variables.BONE_ID) != null
-				&& Inventory.getCount(org.thurs.aiomoney.resources.Variables.BONE_ID) < 28
-				&& org.thurs.aiomoney.resources.Variables.pickupBones;
+				&& GroundItems.getLoaded(var.BONE_ID) != null
+				&& Inventory.getCount(var.BONE_ID) < 28
+				&& var.pickupBones;
 	}
 
 	@Override
@@ -30,7 +32,7 @@ public class PickBones extends Node {
 		GroundItem bones = GroundItems.getNearest(new Filter<GroundItem>() {
 
 			public boolean accept(GroundItem e) {
-				return e.getId() == org.thurs.aiomoney.resources.Variables.BONE_ID;
+				return e.getId() == var.BONE_ID;
 			}
 
 		});
@@ -47,7 +49,7 @@ public class PickBones extends Node {
 				Camera.turnTo(bones);
 			}
 		}
-		org.thurs.aiomoney.resources.Variables.status = "Picking up bones...";
+		var.status = "Picking up bones...";
 	}
 
 }

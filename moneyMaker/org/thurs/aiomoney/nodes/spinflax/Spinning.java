@@ -8,24 +8,25 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.SceneObject;
+import org.thurs.aiomoney.resources.Variables;
 
 public class Spinning extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.INV_FLAX) > 24
-				&& SceneEntities.getLoaded(org.thurs.aiomoney.resources.Variables.SPINNER) != null
-				&& org.thurs.aiomoney.resources.Variables.spinFlax;
+		return Inventory.getCount(var.INV_FLAX) > 24
+				&& SceneEntities.getLoaded(var.SPINNER) != null
+				&& var.spinFlax;
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Spinning...";
+		var.status = "Spinning...";
 		Camera.setPitch(3);
 		SceneObject spinner = SceneEntities
-				.getNearest(org.thurs.aiomoney.resources.Variables.SPINNER);
+				.getNearest(var.SPINNER);
 		if (spinner.isOnScreen()
-				&& SceneEntities.getLoaded(org.thurs.aiomoney.resources.Variables.SPINNER) != null) {
+				&& SceneEntities.getLoaded(var.SPINNER) != null) {
 			spinner.interact("Spin", "Spinning wheel");
 			Timer t = new Timer(1500);
 			while (t.isRunning()) {

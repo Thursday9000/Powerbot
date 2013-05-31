@@ -7,31 +7,32 @@ import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.widget.Bank;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class FlaxBanking extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
 
 		return Inventory.getCount() == 28
-				&& org.thurs.aiomoney.resources.Variables.SEERS_BANK_AREA.contains(Players
+				&& var.SEERS_BANK_AREA.contains(Players
 						.getLocal())
 				&& SceneEntities
-						.getLoaded(org.thurs.aiomoney.resources.Variables.SEERS_BANKER) != null
-				&& org.thurs.aiomoney.resources.Variables.flaxPicking;
+						.getLoaded(var.SEERS_BANKER) != null
+				&& var.flaxPicking;
 	}
 
 	@Override
 	public void execute() {
 
-		org.thurs.aiomoney.resources.Variables.status = "Banking...";
+		var.status = "Banking...";
 		Bank.open();
 		Timer t = new Timer(1750);
 		while (t.isRunning()) {
 			Task.sleep(15);
 		}
 		if (Bank.isOpen()) {
-			Bank.deposit(org.thurs.aiomoney.resources.Variables.INV_FLAX, 28);
+			Bank.deposit(var.INV_FLAX, 28);
 		}
 		Bank.close();
 	}

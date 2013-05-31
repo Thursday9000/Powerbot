@@ -7,24 +7,25 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class HidesToBank extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.COW_HIDES) == 28
-				&& org.thurs.aiomoney.resources.Variables.pickupHides;
+		return Inventory.getCount(var.COW_HIDES) == 28
+				&& var.pickupHides;
 
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Walking...";
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.HIDES_TO_DEPOSITBOX)
+		var.status = "Walking...";
+		Walking.newTilePath(var.HIDES_TO_DEPOSITBOX)
 				.traverse();
 		{
 			if (SceneEntities.getLoaded(45212) != null
-					&& org.thurs.aiomoney.resources.Variables.COW_AREA.contains(Players
+					&& var.COW_AREA.contains(Players
 							.getLocal())) {
 				SceneEntities.getNearest(45212).interact("Open", "Gate");
 				Timer t = new Timer(1340);

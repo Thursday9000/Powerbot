@@ -3,21 +3,22 @@ package org.thurs.aiomoney.nodes.killunicorns;
 import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Walking;
 import org.powerbot.game.api.methods.interactive.Players;
+import org.thurs.aiomoney.resources.Variables;
 
 public class WalkBackOnDeath extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return !org.thurs.aiomoney.resources.Variables.UNICORN_AREA.contains(Players
+		return !var.UNICORN_AREA.contains(Players
 				.getLocal())
-				&& !org.thurs.aiomoney.resources.Variables.HORN_BANK.contains(Players
+				&& !var.HORN_BANK.contains(Players
 						.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.unicornKill;
+				&& var.unicornKill;
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.LUMBY_TO_UNICORNS)
+		Walking.newTilePath(var.LUMBY_TO_UNICORNS)
 				.traverse();
 	}
 

@@ -8,26 +8,27 @@ import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.GroundItem;
+import org.thurs.aiomoney.resources.Variables;
 
 public class PickupFeathers extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
 		return Players.getLocal().isIdle()
-				&& org.thurs.aiomoney.resources.Variables.FEATHER_AREA.contains(Players
+				&& var.FEATHER_AREA.contains(Players
 						.getLocal())
-				&& GroundItems.getLoaded(org.thurs.aiomoney.resources.Variables.FEATHER_ID) != null
-				&& org.thurs.aiomoney.resources.Variables.pickupFeathers;
+				&& GroundItems.getLoaded(var.FEATHER_ID) != null
+				&& var.pickupFeathers;
 	}
 
 	@Override
 	public void execute() {
-		org.thurs.aiomoney.resources.Variables.status = "Taking Feathers...";
+		var.status = "Taking Feathers...";
 		GroundItem feathers = GroundItems
 				.getNearest(new Filter<GroundItem>() {
 
 					public boolean accept(GroundItem e) {
-						return e.getId() == org.thurs.aiomoney.resources.Variables.FEATHER_ID;
+						return e.getId() == var.FEATHER_ID;
 					}
 
 				});

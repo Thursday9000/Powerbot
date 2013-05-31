@@ -7,23 +7,25 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.Item;
+import org.thurs.aiomoney.resources.Variables;
 
 public class CrushBars extends Node {
+	Variables var = new Variables();
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.CHOCOLATE_BAR) <= 28
-				&& org.thurs.aiomoney.resources.Variables.VARROCK_BANK.contains(Players
+		return Inventory.getCount(var.CHOCOLATE_BAR) <= 28
+				&& var.VARROCK_BANK.contains(Players
 						.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.crushBars
+				&& var.crushBars
 				&& Players.getLocal().isIdle();
 	}
 
 	@Override
 	public void execute() {
-		Item bars = Inventory.getItem(org.thurs.aiomoney.resources.Variables.CHOCOLATE_BAR);
-		org.thurs.aiomoney.resources.Variables.status = "Crushing bars...";
-		if (org.thurs.aiomoney.resources.Variables.VARROCK_BANK.contains(Players.getLocal())
+		Item bars = Inventory.getItem(var.CHOCOLATE_BAR);
+		var.status = "Crushing bars...";
+		if (var.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			bars.getWidgetChild().interact("Powder", "Chocolate bar");
 			Timer t = new Timer(1550);

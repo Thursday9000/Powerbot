@@ -7,28 +7,29 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.util.Timer;
+import org.thurs.aiomoney.resources.Variables;
 
 public class ToBankSpin extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.BOW_STRING) == 27
-				&& org.thurs.aiomoney.resources.Variables.SPINNER_AREA
+		return Inventory.getCount(var.BOW_STRING) == 27
+				&& var.SPINNER_AREA
 						.contains(Players.getLocal())
-				&& org.thurs.aiomoney.resources.Variables.spinFlax;
+				&& var.spinFlax;
 	}
 
 	@Override
 	public void execute() {
-		SceneEntities.getNearest(org.thurs.aiomoney.resources.Variables.CLOSED_DOOR).interact(
+		SceneEntities.getNearest(var.CLOSED_DOOR).interact(
 				"Open", "Door");
 		Timer t = new Timer(1500);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(org.thurs.aiomoney.resources.Variables.CLOSED_DOOR) == null) {
+				&& SceneEntities.getNearest(var.CLOSED_DOOR) == null) {
 			Task.sleep(10);
 		}
-		Walking.newTilePath(org.thurs.aiomoney.resources.Variables.SPINNER_TO_BANK).traverse();
-		org.thurs.aiomoney.resources.Variables.status = "Walking to bank...";
+		Walking.newTilePath(var.SPINNER_TO_BANK).traverse();
+		var.status = "Walking to bank...";
 
 	}
 }

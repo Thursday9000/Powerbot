@@ -8,22 +8,23 @@ import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.methods.widget.DepositBox;
 import org.powerbot.game.api.util.Timer;
 import org.powerbot.game.api.wrappers.node.SceneObject;
+import org.thurs.aiomoney.resources.Variables;
 
 public class FeatherBank extends Node {
-
+	Variables var = new Variables();
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(org.thurs.aiomoney.resources.Variables.FEATHER_ID) == 28
-				&& SceneEntities.getLoaded(org.thurs.aiomoney.resources.Variables.LUMBY_BOX) != null
-				&& org.thurs.aiomoney.resources.Variables.pickupFeathers;
+		return Inventory.getCount(var.FEATHER_ID) == 28
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
+				&& var.pickupFeathers;
 	}
 
 	@Override
 	public void execute() {
 		SceneObject box = SceneEntities
-				.getNearest(org.thurs.aiomoney.resources.Variables.LUMBY_BOX);
+				.getNearest(var.LUMBY_BOX);
 		if (box.isOnScreen()) {
-			org.thurs.aiomoney.resources.Variables.status = "Banking...";
+			var.status = "Banking...";
 			box.interact("Deposit");
 			Timer t = new Timer(1000);
 			while (t.isRunning()) {
