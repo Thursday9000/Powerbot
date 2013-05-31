@@ -10,28 +10,28 @@ import org.powerbot.game.api.methods.widget.Bank;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankWine extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.JUG) == 28
-				&& var.VARROCK_BANK.contains(Players.getLocal())
-				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
+		return Inventory.getCount(Variables.JUG) == 28
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(Variables.VARROCK_BANKER) != null;
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Banking...";
+		Variables.status = "Banking...";
 		Bank.open();
 		Timer t = new Timer(1750);
 		while (t.isRunning()) {
 			Task.sleep(15);
 		}
 		if (Bank.isOpen()) {
-			Bank.deposit(var.JUG, 28);
-			if (!Inventory.contains(var.FULL_WINE) && Bank.isOpen()
-					&& Bank.getItem(var.FULL_WINE) != null) {
-				Bank.withdraw(var.FULL_WINE, 28);
+			Bank.deposit(Variables.JUG, 28);
+			if (!Inventory.contains(Variables.FULL_WINE) && Bank.isOpen()
+					&& Bank.getItem(Variables.FULL_WINE) != null) {
+				Bank.withdraw(Variables.FULL_WINE, 28);
 			}
 			Bank.close();
 		}

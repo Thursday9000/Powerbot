@@ -7,18 +7,18 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankToUnicorns extends Node {
-	Variables var = new Variables();
+	
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.HORN_ID) == 0
-				&& !var.UNICORN_AREA.contains(Players
+		return Inventory.getCount(Variables.HORN_ID) == 0
+				&& !Variables.UNICORN_AREA.contains(Players
 						.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Walking...";
-		Walking.newTilePath(var.BANK_TO_UNICORNS)
+		Variables.status = "Walking...";
+		Walking.newTilePath(Variables.BANK_TO_UNICORNS)
 				.traverse();
 	}
 

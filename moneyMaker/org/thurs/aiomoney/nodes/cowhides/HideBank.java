@@ -12,19 +12,19 @@ import org.thurs.aiomoney.resources.Variables;
 
 //Bank
 public class HideBank extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.COW_HIDES) == 28
-				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
+		return Inventory.getCount(Variables.COW_HIDES) == 28
+				&& SceneEntities.getLoaded(Variables.LUMBY_BOX) != null;
 	}
 
 	@Override
 	public void execute() {
-		SceneObject box = SceneEntities.getNearest(var.LUMBY_BOX);
+		SceneObject box = SceneEntities.getNearest(Variables.LUMBY_BOX);
 		if (box.isOnScreen()) {
-			var.status = "Banking...";
+			Variables.status = "Banking...";
 			box.interact("Deposit");
 			Timer t = new Timer(3000);
 			while (t.isRunning()) {

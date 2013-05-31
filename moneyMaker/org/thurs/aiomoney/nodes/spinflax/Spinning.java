@@ -11,21 +11,21 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 public class Spinning extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.INV_FLAX) > 24
-				&& SceneEntities.getLoaded(var.SPINNER) != null;
+		return Inventory.getCount(Variables.INV_FLAX) > 24
+				&& SceneEntities.getLoaded(Variables.SPINNER) != null;
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Spinning...";
+		Variables.status = "Spinning...";
 		Camera.setPitch(3);
-		SceneObject spinner = SceneEntities.getNearest(var.SPINNER);
+		SceneObject spinner = SceneEntities.getNearest(Variables.SPINNER);
 		if (spinner.isOnScreen()
-				&& SceneEntities.getLoaded(var.SPINNER) != null) {
+				&& SceneEntities.getLoaded(Variables.SPINNER) != null) {
 			spinner.interact("Spin", "Spinning wheel");
 			Timer t = new Timer(1500);
 			while (t.isRunning()) {

@@ -7,18 +7,18 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class ToFlax extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 0
-				&& !var.FLAX_AREA.contains(Players.getLocal());
+				&& !Variables.FLAX_AREA.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.BANK_TO_FLAX).traverse();
-		var.status = "Walking to flax...";
+		Walking.newTilePath(Variables.BANK_TO_FLAX).traverse();
+		Variables.status = "Walking to flax...";
 	}
 
 }

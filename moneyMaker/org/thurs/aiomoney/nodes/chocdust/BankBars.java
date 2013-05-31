@@ -10,28 +10,28 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankBars extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.CHOCOLATE_DUST) == 28
-				&& var.VARROCK_BANK.contains(Players.getLocal())
-				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
+		return Inventory.getCount(Variables.CHOCOLATE_DUST) == 28
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(Variables.VARROCK_BANKER) != null;
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Banking...";
+		Variables.status = "Banking...";
 		Bank.open();
 		Timer t = new Timer(1340);
 		while (t.isRunning()) {
 			Task.sleep(10);
 		}
 		if (Bank.isOpen()) {
-			Bank.deposit(var.CHOCOLATE_DUST, 28);
-			if (!Inventory.contains(var.CHOCOLATE_BAR) && Bank.isOpen()
-					&& Bank.getItem(var.CHOCOLATE_BAR) != null) {
-				Bank.withdraw(var.CHOCOLATE_BAR, 28);
+			Bank.deposit(Variables.CHOCOLATE_DUST, 28);
+			if (!Inventory.contains(Variables.CHOCOLATE_BAR) && Bank.isOpen()
+					&& Bank.getItem(Variables.CHOCOLATE_BAR) != null) {
+				Bank.withdraw(Variables.CHOCOLATE_BAR, 28);
 			}
 		}
 		Bank.close();

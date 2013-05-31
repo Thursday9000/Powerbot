@@ -10,28 +10,28 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankPie extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.PIE_DISH) < 25
-				&& var.VARROCK_BANK.contains(Players.getLocal())
-				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
+		return Inventory.getCount(Variables.PIE_DISH) < 25
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(Variables.VARROCK_BANKER) != null;
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Banking...";
+		Variables.status = "Banking...";
 		Bank.open();
 		Timer t = new Timer(3340);
 		while (t.isRunning()) {
 			Task.sleep(10);
 		}
 		if (Bank.isOpen()) {
-			Bank.deposit(var.PIE_DISH, 28);
-			if (!Inventory.contains(var.APPLE_PIE) && Bank.isOpen()
-					&& Bank.getItem(var.APPLE_PIE) != null) {
-				Bank.withdraw(var.APPLE_PIE, 28);
+			Bank.deposit(Variables.PIE_DISH, 28);
+			if (!Inventory.contains(Variables.APPLE_PIE) && Bank.isOpen()
+					&& Bank.getItem(Variables.APPLE_PIE) != null) {
+				Bank.withdraw(Variables.APPLE_PIE, 28);
 			}
 			Bank.close();
 		}

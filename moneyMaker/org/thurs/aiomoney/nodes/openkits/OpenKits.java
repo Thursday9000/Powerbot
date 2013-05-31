@@ -9,17 +9,17 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class OpenKits extends Node {
-	Variables var = new Variables();
+	
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.HUNTER_KIT) == 4
-				&& var.VARROCK_BANK.contains(Players
+		return Inventory.getCount(Variables.HUNTER_KIT) == 4
+				&& Variables.VARROCK_BANK.contains(Players
 						.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Opening Kits...";
+		Variables.status = "Opening Kits...";
 		for (int x = 0; x < 5; x++) {
 			Widgets.get(679, 0).getChild(3).interact("Open", "Hunter kit");
 			Timer t = new Timer(1750);

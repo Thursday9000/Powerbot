@@ -10,25 +10,25 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class ToBankSpin extends Node {
-	Variables var = new Variables();
+	
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.BOW_STRING) == 27
-				&& var.SPINNER_AREA
+		return Inventory.getCount(Variables.BOW_STRING) == 27
+				&& Variables.SPINNER_AREA
 						.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		SceneEntities.getNearest(var.CLOSED_DOOR).interact(
+		SceneEntities.getNearest(Variables.CLOSED_DOOR).interact(
 				"Open", "Door");
 		Timer t = new Timer(1500);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(var.CLOSED_DOOR) == null) {
+				&& SceneEntities.getNearest(Variables.CLOSED_DOOR) == null) {
 			Task.sleep(10);
 		}
-		Walking.newTilePath(var.SPINNER_TO_BANK).traverse();
-		var.status = "Walking to bank...";
+		Walking.newTilePath(Variables.SPINNER_TO_BANK).traverse();
+		Variables.status = "Walking to bank...";
 
 	}
 }

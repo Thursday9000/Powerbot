@@ -12,15 +12,15 @@ import org.powerbot.game.api.wrappers.node.GroundItem;
 import org.thurs.aiomoney.resources.Variables;
 
 public class PickBones extends Node {
-	Variables var = new Variables();
-	int boneCount = Inventory.getCount(var.BONE_ID);
+	
+	int boneCount = Inventory.getCount(Variables.BONE_ID);
 
 	@Override
 	public boolean activate() {
-		return var.BONE_AREA.contains(Players.getLocal())
+		return Variables.BONE_AREA.contains(Players.getLocal())
 				&& Players.getLocal().isIdle()
-				&& GroundItems.getLoaded(var.BONE_ID) != null
-				&& Inventory.getCount(var.BONE_ID) < 28;
+				&& GroundItems.getLoaded(Variables.BONE_ID) != null
+				&& Inventory.getCount(Variables.BONE_ID) < 28;
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class PickBones extends Node {
 		GroundItem bones = GroundItems.getNearest(new Filter<GroundItem>() {
 
 			public boolean accept(GroundItem e) {
-				return e.getId() == var.BONE_ID;
+				return e.getId() == Variables.BONE_ID;
 			}
 
 		});
@@ -46,7 +46,7 @@ public class PickBones extends Node {
 				Camera.turnTo(bones);
 			}
 		}
-		var.status = "Picking up bones...";
+		Variables.status = "Picking up bones...";
 	}
 
 }

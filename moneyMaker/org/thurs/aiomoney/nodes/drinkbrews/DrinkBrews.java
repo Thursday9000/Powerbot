@@ -9,18 +9,18 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkBrews extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.SARA_BREW_FULL) == 28
-				&& var.VARROCK_BANK.contains(Players.getLocal())
+		return Inventory.getCount(Variables.SARA_BREW_FULL) == 28
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 
 	@Override
 	public void execute() {
-		if (var.VARROCK_BANK.contains(Players.getLocal())
+		if (Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			for (int x = 0; x < 28; x++) {
 				Widgets.get(679, 0).getChild(x)
@@ -31,7 +31,7 @@ public class DrinkBrews extends Node {
 				}
 			}
 		}
-		var.status = "Drinking brews...";
+		Variables.status = "Drinking brews...";
 	}
 
 }

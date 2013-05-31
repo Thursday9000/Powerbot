@@ -6,17 +6,17 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class WalkToBones extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.BONE_ID) == 0;
+		return Inventory.getCount(Variables.BONE_ID) == 0;
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.BOX_TO_BONES).traverse();
-		var.status = "Walking...";
+		Walking.newTilePath(Variables.BOX_TO_BONES).traverse();
+		Variables.status = "Walking...";
 	}
 
 }

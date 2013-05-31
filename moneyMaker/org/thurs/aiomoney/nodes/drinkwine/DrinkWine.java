@@ -9,19 +9,19 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkWine extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.FULL_WINE) == 28
-				&& var.VARROCK_BANK.contains(Players.getLocal())
+		return Inventory.getCount(Variables.FULL_WINE) == 28
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Drinking Wine";
-		if (var.VARROCK_BANK.contains(Players.getLocal())
+		Variables.status = "Drinking Wine";
+		if (Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			for (int x = 0; x < 28; x++) {
 				Widgets.get(679, 0).getChild(x)

@@ -7,18 +7,18 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class ToBank extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 28
-				&& !var.SEERS_BANK_AREA.contains(Players.getLocal());
+				&& !Variables.SEERS_BANK_AREA.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.FLAX_TO_BANK).traverse();
-		var.status = "Walking to bank...";
+		Walking.newTilePath(Variables.FLAX_TO_BANK).traverse();
+		Variables.status = "Walking to bank...";
 
 	}
 

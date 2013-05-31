@@ -8,18 +8,18 @@ import org.thurs.aiomoney.resources.Variables;
 
 
 public class GlitchFixSpin extends Node {
-	Variables var = new Variables();
+	
 	@Override
 	public boolean activate() {
 
-		return var.GLITCH_AREA.contains(Players
+		return Variables.GLITCH_AREA.contains(Players
 				.getLocal())
 				&& Inventory.getCount() == 27;
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.GLITCH_TO_BANK)
+		Walking.newTilePath(Variables.GLITCH_TO_BANK)
 				.traverse();
 	}
 }

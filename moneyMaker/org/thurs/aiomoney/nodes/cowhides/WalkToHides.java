@@ -10,20 +10,20 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class WalkToHides extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.COW_HIDES) == 0;
+		return Inventory.getCount(Variables.COW_HIDES) == 0;
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Walking...";
-		Walking.newTilePath(var.DEPOSITBOX_TO_HIDES).traverse();
+		Variables.status = "Walking...";
+		Walking.newTilePath(Variables.DEPOSITBOX_TO_HIDES).traverse();
 		{
 			if (SceneEntities.getLoaded(45212) != null
-					&& var.COW_AREA.contains(Players.getLocal())) {
+					&& Variables.COW_AREA.contains(Players.getLocal())) {
 				SceneEntities.getNearest(45212).interact("Open", "Gate");
 				Timer t = new Timer(1340);
 				while (t.isRunning() && SceneEntities.getLoaded(45212) == null) {

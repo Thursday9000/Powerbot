@@ -70,7 +70,6 @@ import org.thurs.aiomoney.nodes.swamptar.Pickup;
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
 	Variables var = new Variables();
-	AIOMoneyMaker node = new AIOMoneyMaker();
 	public GUI() {
 		initComponents();
 	}
@@ -121,81 +120,81 @@ public class GUI extends JFrame {
 				button1ActionPerformed(e);
 				String chosen = comboBox1.getSelectedItem().toString();
 				if (chosen.equals("Swamp Tar")) {
-					var.method = "Swamp Tar Picking";
-					node.NODES.add(new Pickup());
+					Variables.method = "Swamp Tar Picking";
+					AIOMoneyMaker.NODES.add(new Pickup());
 				} else if (chosen.equals("Flax Picking")) {
-					var.method = "Picking Flax";
-					node.NODES.add(new FlaxPicking());
-					node.NODES.add(new FlaxBanking());
-					node.NODES.add(new ToFlax());
-					node.NODES.add(new ToBank());
+					Variables.method = "Picking Flax";
+					AIOMoneyMaker.NODES.add(new FlaxPicking());
+					AIOMoneyMaker.NODES.add(new FlaxBanking());
+					AIOMoneyMaker.NODES.add(new ToFlax());
+					AIOMoneyMaker.NODES.add(new ToBank());
 				} else if (chosen.equals("Wine Drinking")) {
-					var.method = "Drinking Wine";
-					node.NODES.add(new DrinkWine());
-					node.NODES.add(new BankWine());
-					node.NODES.add(new BankWineOnStart());
+					Variables.method = "Drinking Wine";
+					AIOMoneyMaker.NODES.add(new DrinkWine());
+					AIOMoneyMaker.NODES.add(new BankWine());
+					AIOMoneyMaker.NODES.add(new BankWineOnStart());
 				} else if (chosen.equals("Pie Eating")) {
-					var.method = "Eating Pie";
-					node.NODES.add(new BankPiesOnStart());
-					node.NODES.add(new BankPie());
-					node.NODES.add(new EatThePie());
+					Variables.method = "Eating Pie";
+					AIOMoneyMaker.NODES.add(new BankPiesOnStart());
+					AIOMoneyMaker.NODES.add(new BankPie());
+					AIOMoneyMaker.NODES.add(new EatThePie());
 				} else if (chosen.equals("Hunter Kits")) {
-					var.method = "Hunter Kits";
-					node.NODES.add(new BankKits());
-					node.NODES.add(new OpenKits());
-					node.NODES.add(new BankKitsOnStart());
+					Variables.method = "Hunter Kits";
+					AIOMoneyMaker.NODES.add(new BankKits());
+					AIOMoneyMaker.NODES.add(new OpenKits());
+					AIOMoneyMaker.NODES.add(new BankKitsOnStart());
 				} else if (chosen.equals("Spin Flax")) {
-					var.method = "Flax Spinning";
-					node.NODES.add(new Spinning());
-					node.NODES.add(new StringBanking());
-					node.NODES.add(new ToBankSpin());
-					node.NODES.add(new ToSpinner());
-					node.NODES.add(new ClimbLadder());
-					node.NODES.add(new ClimbDownLadder());
-					node.NODES.add(new Withdraw());
-					node.NODES.add(new GlitchFix());
+					Variables.method = "Flax Spinning";
+					AIOMoneyMaker.NODES.add(new Spinning());
+					AIOMoneyMaker.NODES.add(new StringBanking());
+					AIOMoneyMaker.NODES.add(new ToBankSpin());
+					AIOMoneyMaker.NODES.add(new ToSpinner());
+					AIOMoneyMaker.NODES.add(new ClimbLadder());
+					AIOMoneyMaker.NODES.add(new ClimbDownLadder());
+					AIOMoneyMaker.NODES.add(new Withdraw());
+					AIOMoneyMaker.NODES.add(new GlitchFix());
 				} else if (chosen.equals("Sara Brews")) {
-					var.method = "Drinking Sara Brews";
-					node.NODES.add(new BankBrewsOnStart());
-					node.NODES.add(new BankBrews());
-					node.NODES.add(new DrinkBrews());
+					Variables.method = "Drinking Sara Brews";
+					AIOMoneyMaker.NODES.add(new BankBrewsOnStart());
+					AIOMoneyMaker.NODES.add(new BankBrews());
+					AIOMoneyMaker.NODES.add(new DrinkBrews());
 				} else if (chosen.equals("Pickup Bones")) {
-					var.method = "Picking Up Bones";
-					node.NODES.add(new BoneBank());
-					node.NODES.add(new PickBones());
-					node.NODES.add(new WalkToBones());
-					node.NODES.add(new WalkToBox());
-					node.NODES.add(new FixDaGlitch());
+					Variables.method = "Picking Up Bones";
+					AIOMoneyMaker.NODES.add(new BoneBank());
+					AIOMoneyMaker.NODES.add(new PickBones());
+					AIOMoneyMaker.NODES.add(new WalkToBones());
+					AIOMoneyMaker.NODES.add(new WalkToBox());
+					AIOMoneyMaker.NODES.add(new FixDaGlitch());
 				} else if (chosen.equals("Cow Hides")) {
-					var.method = "Picking Up Cow Hides";
-					node.NODES.add(new HideBank());
-					node.NODES.add(new PickupHides());
-					node.NODES.add(new WalkToHides());
-					node.NODES.add(new HidesToBank());
-					node.NODES.add(new AntiBan());
+					Variables.method = "Picking Up Cow Hides";
+					AIOMoneyMaker.NODES.add(new HideBank());
+					AIOMoneyMaker.NODES.add(new PickupHides());
+					AIOMoneyMaker.NODES.add(new WalkToHides());
+					AIOMoneyMaker.NODES.add(new HidesToBank());
+					AIOMoneyMaker.NODES.add(new AntiBan());
 				} else if (chosen.equals("Pickup Feathers")) {
-					var.method = "Picking Up Feathers";
-					node.NODES.add(new PickupFeathers());
-					node.NODES.add(new FeatherBank());
-					node.NODES.add(new WalkToFeathers());
-					node.NODES.add(new FeathersToBank());
+					Variables.method = "Picking Up Feathers";
+					AIOMoneyMaker.NODES.add(new PickupFeathers());
+					AIOMoneyMaker.NODES.add(new FeatherBank());
+					AIOMoneyMaker.NODES.add(new WalkToFeathers());
+					AIOMoneyMaker.NODES.add(new FeathersToBank());
 				} else if (chosen.equals("Unicorn Horns")) {
-					var.method = "Gathering Unicorn Horns";
-					node.NODES.add(new KillUnicorns());
-					node.NODES.add(new BankToUnicorns());
-					node.NODES.add(new UnicornsToBank());
-					node.NODES.add(new BankHorns());
-					node.NODES.add(new WalkBackOnDeath());
+					Variables.method = "Gathering Unicorn Horns";
+					AIOMoneyMaker.NODES.add(new KillUnicorns());
+					AIOMoneyMaker.NODES.add(new BankToUnicorns());
+					AIOMoneyMaker.NODES.add(new UnicornsToBank());
+					AIOMoneyMaker.NODES.add(new BankHorns());
+					AIOMoneyMaker.NODES.add(new WalkBackOnDeath());
 				} else if (chosen.equals("Fill Vials")) {
-					var.method = "Filling Vials";
-					node.NODES.add(new VialFiller());
-					node.NODES.add(new VialBanker());
-					node.NODES.add(new InitialVialBank());
+					Variables.method = "Filling Vials";
+					AIOMoneyMaker.NODES.add(new VialFiller());
+					AIOMoneyMaker.NODES.add(new VialBanker());
+					AIOMoneyMaker.NODES.add(new InitialVialBank());
 				} else if (chosen.equals("Crush Chocolate Bars")) {
-					var.method = "Crushing Chocolate Bars";
-					node.NODES.add(new CrushBars());
-					node.NODES.add(new BankBars());
-					node.NODES.add(new InitialBankBars());
+					Variables.method = "Crushing Chocolate Bars";
+					AIOMoneyMaker.NODES.add(new CrushBars());
+					AIOMoneyMaker.NODES.add(new BankBars());
+					AIOMoneyMaker.NODES.add(new InitialBankBars());
 				}
 				setVisible(false);
 			}

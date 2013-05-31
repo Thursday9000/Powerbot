@@ -9,24 +9,24 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class ClimbDownLadder extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.BOW_STRING) == 27
+		return Inventory.getCount(Variables.BOW_STRING) == 27
 				&& SceneEntities.getLoaded(25939) != null;
 	}
 
 	@Override
 	public void execute() {
 		Camera.setPitch(93);
-		SceneEntities.getNearest(var.LADDER_ID2).interact("Climb-down",
+		SceneEntities.getNearest(Variables.LADDER_ID2).interact("Climb-down",
 				"Ladder");
 		Timer t = new Timer(2350);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(var.LADDER_ID2) == null) {
+				&& SceneEntities.getNearest(Variables.LADDER_ID2) == null) {
 			Task.sleep(20);
-			var.status = "Climbing ladder...";
+			Variables.status = "Climbing ladder...";
 		}
 
 	}

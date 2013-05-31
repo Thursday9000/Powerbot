@@ -10,20 +10,20 @@ import org.powerbot.game.api.wrappers.node.Item;
 import org.thurs.aiomoney.resources.Variables;
 
 public class CrushBars extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.CHOCOLATE_BAR) <= 28
-				&& var.VARROCK_BANK.contains(Players.getLocal())
+		return Inventory.getCount(Variables.CHOCOLATE_BAR) <= 28
+				&& Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 
 	@Override
 	public void execute() {
-		Item bars = Inventory.getItem(var.CHOCOLATE_BAR);
-		var.status = "Crushing bars...";
-		if (var.VARROCK_BANK.contains(Players.getLocal())
+		Item bars = Inventory.getItem(Variables.CHOCOLATE_BAR);
+		Variables.status = "Crushing bars...";
+		if (Variables.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			bars.getWidgetChild().interact("Powder", "Chocolate bar");
 			Timer t = new Timer(1550);

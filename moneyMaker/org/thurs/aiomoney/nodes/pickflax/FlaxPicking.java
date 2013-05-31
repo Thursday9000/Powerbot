@@ -12,22 +12,22 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 public class FlaxPicking extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() < 28 && Players.getLocal().isIdle()
-				&& var.FLAX_AREA.contains(Players.getLocal())
-				&& SceneEntities.getLoaded(var.FLAX_ID) != null;
+				&& Variables.FLAX_AREA.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(Variables.FLAX_ID) != null;
 	}
 
 	@Override
 	public void execute() {
-		int flaxCount = Inventory.getCount(var.FLAX_ID);
+		int flaxCount = Inventory.getCount(Variables.FLAX_ID);
 		SceneObject flax = SceneEntities.getNearest(new Filter<SceneObject>() {
 
 			public boolean accept(SceneObject e) {
-				return e.getId() == var.FLAX_ID;
+				return e.getId() == Variables.FLAX_ID;
 			}
 
 		});
@@ -36,13 +36,13 @@ public class FlaxPicking extends Node {
 				flax.interact("Pick", "Flax");
 				Timer t = new Timer(1850);
 				while (t.isRunning()
-						&& Inventory.getCount(var.FLAX_ID) <= flaxCount) {
+						&& Inventory.getCount(Variables.FLAX_ID) <= flaxCount) {
 					Task.sleep(17);
 				}
 			} else {
 				Camera.turnTo(flax);
 			}
 		}
-		var.status = "Picking Flax...";
+		Variables.status = "Picking Flax...";
 	}
 }

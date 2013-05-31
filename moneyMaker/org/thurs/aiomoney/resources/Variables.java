@@ -7,57 +7,57 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 
 public class Variables {
 	// Ints
-	public final int TAR_ID = 1939;
-	public final int FLAX_ID = 2646;
-	public final int INV_FLAX = 1779;
-	public final int SEERS_BANKER = 495;
-	public final int FULL_WINE = 1993;
-	public final int JUG = 1935;
-	public final int VARROCK_BANKER = 553;
-	public final int APPLE_PIE = 2323;
-	public final int PIE_DISH = 2313;
-	public final int HUNTER_KIT = 11159;
-	public final int NOOSE_WAND = 10150;
-	public final int BUTTERFLY_NET = 10010;
-	public final int BIRD_SNARE = 10006;
-	public final int RABBIT_SNARE = 10031;
-	public final int TEASING_STICK = 10029;
-	public final int BOX_TRAP = 10008;
-	public final int UNLIT_TORCH = 596;
-	public final int BOW_STRING = 1777;
-	public final int LADDER_ID = 25938;
-	public final int LADDER_ID2 = 25939;
-	public final int CLOSED_DOOR = 25819;
-	public final int SPINNER = 25824;
-	public final int SARA_BREW_FULL = 6689;
-	public final int SARA_BREW_DRANK = 6691;
-	public final int BONE_ID = 526;
-	public final int LUMBY_BOX = 79036;
-	public final int COW_HIDES = 1739;
-	public final int FEATHER_ID = 314;
-	public final int UNICORN_ID = 89;
-	public final int HORN_ID = 237;
-	public final int HORN_BANKER = 2759;
-	public final int VIALS = 229;
-	public final int WATER_VIALS = 227;
-	public final int FOUNTAIN_ID = 47150;
-	public final int VIAL_BANKER = 2718;
-	public final int CHOCOLATE_BAR = 1973;
-	public final int CHOCOLATE_DUST = 1975;
+	public static final int TAR_ID = 1939;
+	public static final int FLAX_ID = 2646;
+	public static final int INV_FLAX = 1779;
+	public static final int SEERS_BANKER = 495;
+	public static final int FULL_WINE = 1993;
+	public static final int JUG = 1935;
+	public static final int VARROCK_BANKER = 553;
+	public static final int APPLE_PIE = 2323;
+	public static final int PIE_DISH = 2313;
+	public static final int HUNTER_KIT = 11159;
+	public static final int NOOSE_WAND = 10150;
+	public static final int BUTTERFLY_NET = 10010;
+	public static final int BIRD_SNARE = 10006;
+	public static final int RABBIT_SNARE = 10031;
+	public static final int TEASING_STICK = 10029;
+	public static final int BOX_TRAP = 10008;
+	public static final int UNLIT_TORCH = 596;
+	public static final int BOW_STRING = 1777;
+	public static final int LADDER_ID = 25938;
+	public static final int LADDER_ID2 = 25939;
+	public static final int CLOSED_DOOR = 25819;
+	public static final int SPINNER = 25824;
+	public static final int SARA_BREW_FULL = 6689;
+	public static final int SARA_BREW_DRANK = 6691;
+	public static final int BONE_ID = 526;
+	public static final int LUMBY_BOX = 79036;
+	public static final int COW_HIDES = 1739;
+	public static final int FEATHER_ID = 314;
+	public static final int UNICORN_ID = 89;
+	public static final int HORN_ID = 237;
+	public static final int HORN_BANKER = 2759;
+	public static final int VIALS = 229;
+	public static final int WATER_VIALS = 227;
+	public static final int FOUNTAIN_ID = 47150;
+	public static final int VIAL_BANKER = 2718;
+	public static final int CHOCOLATE_BAR = 1973;
+	public static final int CHOCOLATE_DUST = 1975;
 
 	// Strings
-	public String method;
-	public String status;
+	public static String method;
+	public static String status;
 
 	// Other
-	long startTime = System.currentTimeMillis();
-	public final Timer runTime = new Timer(0);
-	long time = System.currentTimeMillis();
-	public SceneObject fount;
-	public Timer Sleeping = new Timer(0);
+	static long startTime = System.currentTimeMillis();
+	public static final Timer runTime = new Timer(0);
+	static long time = System.currentTimeMillis();
+	public static SceneObject fount;
+	public static Timer Sleeping = new Timer(0);
 
 	// Areas
-	public final Area TAR_LOCATION = new Area(new Tile[] {
+	public static final Area TAR_LOCATION = new Area(new Tile[] {
 			new Tile(3187, 3178, 0), new Tile(3188, 3183, 0),
 			new Tile(3188, 3188, 0), new Tile(3187, 3194, 0),
 			new Tile(3187, 3199, 0), new Tile(3186, 3204, 0),
@@ -96,7 +96,7 @@ public class Variables {
 			new Tile(3195, 3212, 0), new Tile(3190, 3212, 0),
 			new Tile(3185, 3212, 0) });
 
-	public final Area FLAX_AREA = new Area(new Tile[] {
+	public static final Area FLAX_AREA = new Area(new Tile[] {
 			new Tile(2743, 3442, 0), new Tile(2743, 3447, 0),
 			new Tile(2742, 3452, 0), new Tile(2747, 3452, 0),
 			new Tile(2751, 3449, 0), new Tile(2752, 3444, 0),
@@ -106,7 +106,7 @@ public class Variables {
 			new Tile(2734, 3449, 0), new Tile(2737, 3453, 0),
 			new Tile(2742, 3453, 0), new Tile(2743, 3448, 0) });
 
-	public final Area SEERS_BANK_AREA = new Area(new Tile[] {
+	public static final Area SEERS_BANK_AREA = new Area(new Tile[] {
 			new Tile(2725, 3492, 0), new Tile(2725, 3497, 0),
 			new Tile(2724, 3502, 0), new Tile(2730, 3504, 0),
 			new Tile(2734, 3501, 0), new Tile(2737, 3496, 0),
@@ -117,7 +117,7 @@ public class Variables {
 			new Tile(2713, 3493, 0), new Tile(2714, 3498, 0),
 			new Tile(2717, 3502, 0), new Tile(2722, 3502, 0) });
 
-	public final Area VARROCK_BANK = new Area(new Tile[] {
+	public static final Area VARROCK_BANK = new Area(new Tile[] {
 			new Tile(3184, 3438, 0), new Tile(3183, 3443, 0),
 			new Tile(3183, 3448, 0), new Tile(3188, 3450, 0),
 			new Tile(3193, 3448, 0), new Tile(3196, 3444, 0),
@@ -129,14 +129,14 @@ public class Variables {
 			new Tile(3173, 3446, 0), new Tile(3177, 3449, 0),
 			new Tile(3182, 3449, 0) });
 
-	public final Area SPINNER_AREA = new Area(new Tile[] {
+	public static final Area SPINNER_AREA = new Area(new Tile[] {
 			new Tile(2711, 3470, 0), new Tile(2710, 3475, 0),
 			new Tile(2715, 3476, 0), new Tile(2720, 3474, 0),
 			new Tile(2723, 3470, 0), new Tile(2719, 3467, 0),
 			new Tile(2714, 3466, 0), new Tile(2709, 3468, 0),
 			new Tile(2708, 3473, 0), new Tile(2709, 3478, 0) });
 
-	public final Area GLITCH_AREA = new Area(new Tile[] {
+	public static final Area GLITCH_AREA = new Area(new Tile[] {
 			new Tile(2737, 3501, 0), new Tile(2733, 3504, 0),
 			new Tile(2731, 3509, 0), new Tile(2735, 3512, 0),
 			new Tile(2740, 3511, 0), new Tile(2742, 3506, 0),
@@ -145,12 +145,12 @@ public class Variables {
 			new Tile(2729, 3502, 0), new Tile(2727, 3507, 0),
 			new Tile(2730, 3511, 0) });
 
-	public final Area BONE_AREA = new Area(new Tile[] {
+	public static final Area BONE_AREA = new Area(new Tile[] {
 			new Tile(3237, 3252, 0), new Tile(3270, 3254, 0),
 			new Tile(3270, 3213, 0), new Tile(3250, 3213, 0),
 			new Tile(3234, 3237, 0) });
 
-	public Area BONE_COW_AREA = new Area(new Tile[] { new Tile(3268, 3252, 0),
+	public static Area BONE_COW_AREA = new Area(new Tile[] { new Tile(3268, 3252, 0),
 			new Tile(3243, 3252, 0), new Tile(3239, 3298, 0),
 			new Tile(3268, 3297, 0) });
 
@@ -168,7 +168,7 @@ public class Variables {
 			new Tile(3199, 3226, 0), new Tile(3201, 3231, 0),
 			new Tile(3204, 3235, 0) });
 
-	public Area COW_AREA = new Area(new Tile[] { new Tile(3267, 3255, 0),
+	public static Area COW_AREA = new Area(new Tile[] { new Tile(3267, 3255, 0),
 			new Tile(3269, 3260, 0), new Tile(3270, 3265, 0),
 			new Tile(3271, 3270, 0), new Tile(3271, 3275, 0),
 			new Tile(3271, 3280, 0), new Tile(3269, 3285, 0),
@@ -183,7 +183,7 @@ public class Variables {
 			new Tile(3252, 3256, 0), new Tile(3253, 3251, 0),
 			new Tile(3250, 3255, 0), new Tile(3269, 3252, 0) });
 
-	public Area COW_HIDE_ANTI_BAN = new Area(new Tile[] {
+	public static Area COW_HIDE_ANTI_BAN = new Area(new Tile[] {
 			new Tile(3239, 3289, 0), new Tile(3234, 3287, 0),
 			new Tile(3233, 3282, 0), new Tile(3237, 3279, 0),
 			new Tile(3242, 3278, 0) });
@@ -194,7 +194,7 @@ public class Variables {
 			new Tile(3210, 3267, 0), new Tile(3208, 3262, 0),
 			new Tile(3211, 3258, 0) });
 
-	public final Area FEATHER_AREA = new Area(new Tile[] {
+	public static final Area FEATHER_AREA = new Area(new Tile[] {
 			new Tile(3223, 3303, 0), new Tile(3228, 3302, 0),
 			new Tile(3233, 3302, 0), new Tile(3238, 3299, 0),
 			new Tile(3237, 3294, 0), new Tile(3237, 3289, 0),
@@ -202,7 +202,7 @@ public class Variables {
 			new Tile(3226, 3286, 0), new Tile(3223, 3290, 0),
 			new Tile(3222, 3285, 0) });
 
-	public final Area UNICORN_AREA = new Area(new Tile[] {
+	public static final Area UNICORN_AREA = new Area(new Tile[] {
 			new Tile(3271, 3374, 0), new Tile(3277, 3374, 0),
 			new Tile(3282, 3374, 0), new Tile(3287, 3374, 0),
 			new Tile(3292, 3373, 0), new Tile(3296, 3370, 0),
@@ -217,7 +217,7 @@ public class Variables {
 			new Tile(3254, 3355, 0), new Tile(3253, 3360, 0),
 			new Tile(3252, 3365, 0), new Tile(3252, 3370, 0) });
 
-	public final Area HORN_BANK = new Area(new Tile[] {
+	public static final Area HORN_BANK = new Area(new Tile[] {
 			new Tile(3255, 3419, 0), new Tile(3258, 3423, 0),
 			new Tile(3258, 3428, 0), new Tile(3253, 3429, 0),
 			new Tile(3248, 3429, 0), new Tile(3246, 3424, 0),
@@ -226,7 +226,7 @@ public class Variables {
 			new Tile(3259, 3419, 0), new Tile(3258, 3424, 0) });
 
 	// Paths
-	public final Tile[] FLAX_TO_BANK = new Tile[] { new Tile(2741, 3443, 0),
+	public static final Tile[] FLAX_TO_BANK = new Tile[] { new Tile(2741, 3443, 0),
 			new Tile(2736, 3442, 0), new Tile(2731, 3444, 0),
 			new Tile(2730, 3449, 0), new Tile(2729, 3454, 0),
 			new Tile(2728, 3459, 0), new Tile(2728, 3464, 0),
@@ -234,30 +234,30 @@ public class Variables {
 			new Tile(2727, 3479, 0), new Tile(2723, 3482, 0),
 			new Tile(2725, 3487, 0) };
 
-	public final Tile[] BANK_TO_FLAX = new Tile[] { new Tile(2725, 3490, 0),
+	public static final Tile[] BANK_TO_FLAX = new Tile[] { new Tile(2725, 3490, 0),
 			new Tile(2725, 3485, 0), new Tile(2725, 3480, 0),
 			new Tile(2725, 3475, 0), new Tile(2724, 3470, 0),
 			new Tile(2724, 3465, 0), new Tile(2725, 3460, 0),
 			new Tile(2727, 3455, 0), new Tile(2730, 3450, 0),
 			new Tile(2732, 3445, 0), new Tile(2737, 3443, 0) };
 
-	public final Tile[] BANK_TO_SPINNER = new Tile[] { new Tile(2725, 3489, 0),
+	public static final Tile[] BANK_TO_SPINNER = new Tile[] { new Tile(2725, 3489, 0),
 			new Tile(2724, 3484, 0), new Tile(2723, 3479, 0),
 			new Tile(2720, 3475, 0), new Tile(2716, 3472, 0),
 			new Tile(2712, 3470, 0) };
 
-	public final Tile[] SPINNER_TO_BANK = new Tile[] { new Tile(2712, 3471, 0),
+	public static final Tile[] SPINNER_TO_BANK = new Tile[] { new Tile(2712, 3471, 0),
 			new Tile(2717, 3471, 0), new Tile(2722, 3472, 0),
 			new Tile(2722, 3477, 0), new Tile(2722, 3482, 0),
 			new Tile(2725, 3486, 0), new Tile(2724, 3490, 0),
 			new Tile(2727, 3491, 0) };
 
-	public final Tile[] GLITCH_TO_BANK = new Tile[] { new Tile(2738, 3502, 0),
+	public static final Tile[] GLITCH_TO_BANK = new Tile[] { new Tile(2738, 3502, 0),
 			new Tile(2739, 3497, 0), new Tile(2738, 3492, 0),
 			new Tile(2735, 3488, 0), new Tile(2731, 3485, 0),
 			new Tile(2726, 3485, 0), new Tile(2724, 3490, 0) };
 
-	public final Tile[] BOX_TO_BONES = new Tile[] { new Tile(3214, 3259, 0),
+	public static final Tile[] BOX_TO_BONES = new Tile[] { new Tile(3214, 3259, 0),
 			new Tile(3219, 3259, 0), new Tile(3224, 3260, 0),
 			new Tile(3229, 3261, 0), new Tile(3234, 3262, 0),
 			new Tile(3239, 3262, 0), new Tile(3244, 3262, 0),
@@ -265,7 +265,7 @@ public class Variables {
 			new Tile(3254, 3251, 0), new Tile(3256, 3246, 0),
 			new Tile(3253, 3242, 0), new Tile(3250, 3238, 0) };
 
-	public final Tile[] BONES_TO_BOX = new Tile[] { new Tile(3252, 3242, 0),
+	public static final Tile[] BONES_TO_BOX = new Tile[] { new Tile(3252, 3242, 0),
 			new Tile(3255, 3246, 0), new Tile(3252, 3250, 0),
 			new Tile(3250, 3255, 0), new Tile(3248, 3260, 0),
 			new Tile(3243, 3261, 0), new Tile(3238, 3262, 0),
@@ -273,14 +273,14 @@ public class Variables {
 			new Tile(3223, 3261, 0), new Tile(3218, 3261, 0),
 			new Tile(3213, 3260, 0) };
 
-	public final Tile[] DEPOSITBOX_TO_HIDES = new Tile[] {
+	public static final Tile[] DEPOSITBOX_TO_HIDES = new Tile[] {
 			new Tile(3213, 3262, 0), new Tile(3218, 3261, 0),
 			new Tile(3223, 3261, 0), new Tile(3228, 3261, 0),
 			new Tile(3233, 3262, 0), new Tile(3238, 3263, 0),
 			new Tile(3243, 3263, 0), new Tile(3248, 3264, 0),
 			new Tile(3252, 3267, 0), new Tile(3254, 3268, 0) };
 
-	public final Tile[] HIDES_TO_DEPOSITBOX = new Tile[] {
+	public static final Tile[] HIDES_TO_DEPOSITBOX = new Tile[] {
 			new Tile(3254, 3291, 0), new Tile(3256, 3286, 0),
 			new Tile(3258, 3281, 0), new Tile(3259, 3276, 0),
 			new Tile(3258, 3271, 0), new Tile(3256, 3266, 0),
@@ -290,13 +290,13 @@ public class Variables {
 			new Tile(3222, 3260, 0), new Tile(3217, 3260, 0),
 			new Tile(3212, 3261, 0) };
 
-	public final Tile[] ANTI_BAN_WALK = new Tile[] { new Tile(3237, 3284, 0),
+	public static final Tile[] ANTI_BAN_WALK = new Tile[] { new Tile(3237, 3284, 0),
 			new Tile(3240, 3280, 0), new Tile(3241, 3275, 0),
 			new Tile(3243, 3270, 0), new Tile(3245, 3265, 0),
 			new Tile(3249, 3262, 0), new Tile(3252, 3266, 0),
 			new Tile(3257, 3268, 0) };
 
-	public final Tile[] BANK_TO_UNICORNS = new Tile[] {
+	public static final Tile[] BANK_TO_UNICORNS = new Tile[] {
 			new Tile(3252, 3421, 0), new Tile(3252, 3426, 0),
 			new Tile(3256, 3429, 0), new Tile(3261, 3429, 0),
 			new Tile(3266, 3429, 0), new Tile(3271, 3429, 0),
@@ -311,7 +311,7 @@ public class Variables {
 			new Tile(3296, 3360, 0), new Tile(3296, 3355, 0),
 			new Tile(3292, 3352, 0), new Tile(3287, 3350, 0) };
 
-	public final Tile[] UNICORNS_TO_BANK = new Tile[] {
+	public static final Tile[] UNICORNS_TO_BANK = new Tile[] {
 			new Tile(3286, 3351, 0), new Tile(3291, 3351, 0),
 			new Tile(3296, 3352, 0), new Tile(3296, 3357, 0),
 			new Tile(3296, 3362, 0), new Tile(3296, 3367, 0),
@@ -326,7 +326,7 @@ public class Variables {
 			new Tile(3261, 3428, 0), new Tile(3256, 3428, 0),
 			new Tile(3253, 3424, 0), new Tile(3253, 3419, 0) };
 
-	public final Tile[] LUMBY_TO_UNICORNS = new Tile[] {
+	public static final Tile[] LUMBY_TO_UNICORNS = new Tile[] {
 			new Tile(3220, 3217, 0), new Tile(3225, 3217, 0),
 			new Tile(3230, 3217, 0), new Tile(3235, 3217, 0),
 			new Tile(3236, 3222, 0), new Tile(3232, 3225, 0),
@@ -348,13 +348,13 @@ public class Variables {
 			new Tile(3278, 3340, 0), new Tile(3279, 3345, 0),
 			new Tile(3281, 3350, 0) };
 
-	public final Tile[] BONE_COW_FIX = new Tile[] { new Tile(3257, 3258, 0),
+	public static final Tile[] BONE_COW_FIX = new Tile[] { new Tile(3257, 3258, 0),
 			new Tile(3257, 3263, 0), new Tile(3254, 3267, 0),
 			new Tile(3250, 3264, 0), new Tile(3249, 3259, 0),
 			new Tile(3250, 3254, 0), new Tile(3253, 3250, 0),
 			new Tile(3252, 3245, 0) };
 
-	public final Tile[] FEATHER_TO_BANK = new Tile[] { new Tile(3232, 3293, 0),
+	public static final Tile[] FEATHER_TO_BANK = new Tile[] { new Tile(3232, 3293, 0),
 			new Tile(3236, 3296, 0), new Tile(3238, 3291, 0),
 			new Tile(3237, 3286, 0), new Tile(3238, 3281, 0),
 			new Tile(3242, 3278, 0), new Tile(3245, 3274, 0),
@@ -365,7 +365,7 @@ public class Variables {
 			new Tile(3219, 3261, 0), new Tile(3214, 3260, 0),
 			new Tile(3212, 3260, 0) };
 
-	public final Tile[] BANK_TO_FEATHERS = new Tile[] {
+	public static final Tile[] BANK_TO_FEATHERS = new Tile[] {
 			new Tile(3213, 3258, 0), new Tile(3218, 3259, 0),
 			new Tile(3223, 3260, 0), new Tile(3228, 3261, 0),
 			new Tile(3233, 3262, 0), new Tile(3238, 3261, 0),
@@ -375,6 +375,6 @@ public class Variables {
 			new Tile(3236, 3283, 0), new Tile(3237, 3288, 0),
 			new Tile(3239, 3293, 0), new Tile(3235, 3296, 0) };
 
-	final Area ftile = new Area(new Tile[] { new Tile(3159, 3491, 0),
+	static final Area ftile = new Area(new Tile[] { new Tile(3159, 3491, 0),
 			new Tile(3159, 39492, 0) });
 }

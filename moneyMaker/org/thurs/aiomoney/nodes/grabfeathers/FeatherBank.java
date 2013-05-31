@@ -11,19 +11,19 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 public class FeatherBank extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.FEATHER_ID) == 28
-				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
+		return Inventory.getCount(Variables.FEATHER_ID) == 28
+				&& SceneEntities.getLoaded(Variables.LUMBY_BOX) != null;
 	}
 
 	@Override
 	public void execute() {
-		SceneObject box = SceneEntities.getNearest(var.LUMBY_BOX);
+		SceneObject box = SceneEntities.getNearest(Variables.LUMBY_BOX);
 		if (box.isOnScreen()) {
-			var.status = "Banking...";
+			Variables.status = "Banking...";
 			box.interact("Deposit");
 			Timer t = new Timer(1000);
 			while (t.isRunning()) {

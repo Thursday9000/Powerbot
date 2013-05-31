@@ -14,34 +14,34 @@ import org.powerbot.game.api.wrappers.node.GroundItem;
 import org.thurs.aiomoney.resources.Variables;
 
 public class KillUnicorns extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return NPCs.getNearest(var.UNICORN_ID) != null
-				&& var.UNICORN_AREA.contains(Players.getLocal());
+		return NPCs.getNearest(Variables.UNICORN_ID) != null
+				&& Variables.UNICORN_AREA.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		int hornCount = Inventory.getCount(var.UNICORN_ID);
+		int hornCount = Inventory.getCount(Variables.UNICORN_ID);
 
 		if (!Players.getLocal().isInCombat()) {
-			var.method = "Killing Unicorns...";
-			NPC[] unicorns = NPCs.getLoaded(var.UNICORN_ID);
+			Variables.method = "Killing Unicorns...";
+			NPC[] unicorns = NPCs.getLoaded(Variables.UNICORN_ID);
 			for (int i = 0; i < unicorns.length - 1; i++) {
 				if (unicorns[i].isInCombat()) {
 					unicorns[i] = null;
 				}
 			}
-			NPC unicorn = NPCs.getNearest(var.UNICORN_ID);
+			NPC unicorn = NPCs.getNearest(Variables.UNICORN_ID);
 			if (unicorn != null) {
 				if (!unicorn.isOnScreen()) {
 					Camera.turnTo(unicorn);
 					Camera.setPitch(false);
 
 				} else {
-					var.method = "Killing Unicorns...";
+					Variables.method = "Killing Unicorns...";
 					unicorn.interact("Attack", "Unicorn");
 					Timer t = new Timer(3100);
 					while (t.isRunning()) {
@@ -50,25 +50,25 @@ public class KillUnicorns extends Node {
 				}
 			}
 		}
-		if (GroundItems.getLoaded(var.HORN_ID) != null
-				&& var.UNICORN_AREA.contains(Players.getLocal())
+		if (GroundItems.getLoaded(Variables.HORN_ID) != null
+				&& Variables.UNICORN_AREA.contains(Players.getLocal())
 				&& Players.getLocal().isIdle()) {
 			Camera.setPitch(32);
 			GroundItem horn = GroundItems.getNearest(new Filter<GroundItem>() {
 
 				public boolean accept(GroundItem e) {
-					return e.getId() == var.HORN_ID;
+					return e.getId() == Variables.HORN_ID;
 				}
 
 			});
 			if (horn != null) {
 				if (horn.isOnScreen()) {
-					var.status = "Picking up Horns...";
+					Variables.status = "Picking up Horns...";
 					Camera.turnTo(horn);
 					horn.interact("Take", "Unicorn horn");
 					Timer t = new Timer(2000);
 					while (t.isRunning()
-							&& Inventory.getCount(var.HORN_ID) <= hornCount) {
+							&& Inventory.getCount(Variables.HORN_ID) <= hornCount) {
 						Task.sleep(17);
 					}
 				} else {

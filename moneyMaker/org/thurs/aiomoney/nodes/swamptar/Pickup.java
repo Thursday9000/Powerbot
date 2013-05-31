@@ -12,13 +12,13 @@ import org.powerbot.game.api.wrappers.node.GroundItem;
 import org.thurs.aiomoney.resources.Variables;
 
 public class Pickup extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
 		return Players.getLocal().isIdle()
-				&& var.TAR_LOCATION.contains(Players.getLocal())
-				&& GroundItems.getLoaded(var.TAR_ID) != null;
+				&& Variables.TAR_LOCATION.contains(Players.getLocal())
+				&& GroundItems.getLoaded(Variables.TAR_ID) != null;
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class Pickup extends Node {
 		GroundItem tar = GroundItems.getNearest(new Filter<GroundItem>() {
 
 			public boolean accept(GroundItem e) {
-				return e.getId() == var.TAR_ID;
+				return e.getId() == Variables.TAR_ID;
 			}
 
 		});
@@ -48,7 +48,7 @@ public class Pickup extends Node {
 				Task.sleep(12);
 			}
 		}
-		var.status = "Taking Tar...";
+		Variables.status = "Taking Tar...";
 	}
 
 }

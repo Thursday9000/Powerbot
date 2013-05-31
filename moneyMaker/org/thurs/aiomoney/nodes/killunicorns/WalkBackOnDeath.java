@@ -6,17 +6,17 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.thurs.aiomoney.resources.Variables;
 
 public class WalkBackOnDeath extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return !var.UNICORN_AREA.contains(Players.getLocal())
-				&& !var.HORN_BANK.contains(Players.getLocal());
+		return !Variables.UNICORN_AREA.contains(Players.getLocal())
+				&& !Variables.HORN_BANK.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.LUMBY_TO_UNICORNS).traverse();
+		Walking.newTilePath(Variables.LUMBY_TO_UNICORNS).traverse();
 	}
 
 }

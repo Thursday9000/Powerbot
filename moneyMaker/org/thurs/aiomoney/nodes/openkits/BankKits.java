@@ -10,20 +10,20 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankKits extends Node {
-	Variables var = new Variables();
+	
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 28
 				&& SceneEntities
-						.getLoaded(var.VARROCK_BANKER) != null
-				&& !Inventory.contains(var.HUNTER_KIT)
-				&& var.VARROCK_BANK.contains(Players
+						.getLoaded(Variables.VARROCK_BANKER) != null
+				&& !Inventory.contains(Variables.HUNTER_KIT)
+				&& Variables.VARROCK_BANK.contains(Players
 						.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		var.status = "Banking...";
+		Variables.status = "Banking...";
 		Bank.open();
 		Timer ti = new Timer(3350);
 		while (ti.isRunning()) {
@@ -34,10 +34,10 @@ public class BankKits extends Node {
 		while (t.isRunning() && Inventory.getCount() == 0) {
 			Task.sleep(12);
 		}
-		if (!Inventory.contains(var.HUNTER_KIT)
+		if (!Inventory.contains(Variables.HUNTER_KIT)
 				&& Bank.isOpen()
-				&& Bank.getItem(var.HUNTER_KIT) != null) {
-			Bank.withdraw(var.HUNTER_KIT, 4);
+				&& Bank.getItem(Variables.HUNTER_KIT) != null) {
+			Bank.withdraw(Variables.HUNTER_KIT, 4);
 		}
 
 		Bank.close();

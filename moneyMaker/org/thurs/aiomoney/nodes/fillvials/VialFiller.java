@@ -13,29 +13,29 @@ import org.powerbot.game.api.wrappers.widget.WidgetChild;
 import org.thurs.aiomoney.resources.Variables;
 
 public class VialFiller extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
 
-		return Inventory.getCount(var.VIALS) == 28;
+		return Inventory.getCount(Variables.VIALS) == 28;
 	}
 
 	@Override
 	public void execute() {
-		var.fount = SceneEntities.getNearest(var.FOUNTAIN_ID);
-		Item vial = Inventory.getItem(var.VIALS);
+		Variables.fount = SceneEntities.getNearest(Variables.FOUNTAIN_ID);
+		Item vial = Inventory.getItem(Variables.VIALS);
 		WidgetChild fill = Widgets.get(1371, 5);
 		WidgetChild camera = Widgets.get(548, 3);
 		boolean selected = false;
 		if (!vial.getWidgetChild().contains(Mouse.getLocation()) && !selected) {
 			Mouse.click(camera.getCentralPoint(), true);
-			Camera.turnTo(var.fount);
+			Camera.turnTo(Variables.fount);
 			vial.getWidgetChild().interact("Use");
 			selected = true;
 
 		} else {
-			var.fount.click(true);
+			Variables.fount.click(true);
 			final Timer timer = new Timer(5000);
 			while (!fill.validate()) {
 				Task.sleep(100);

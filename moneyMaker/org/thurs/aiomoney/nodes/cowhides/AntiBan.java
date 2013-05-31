@@ -6,15 +6,15 @@ import org.powerbot.game.api.methods.interactive.Players;
 import org.thurs.aiomoney.resources.Variables;
 
 public class AntiBan extends Node {
-	Variables var = new Variables();
+	
 
 	@Override
 	public boolean activate() {
-		return var.COW_HIDE_ANTI_BAN.contains(Players.getLocal());
+		return Variables.COW_HIDE_ANTI_BAN.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.ANTI_BAN_WALK).traverse();
+		Walking.newTilePath(Variables.ANTI_BAN_WALK).traverse();
 	}
 }
