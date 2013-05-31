@@ -7,19 +7,7 @@ import java.util.LinkedList;
 
 import javax.swing.*;
 
-import org.thurs.aiomoney.nodes.cowhides.*;
-import org.thurs.aiomoney.nodes.chocdust.*;
-import org.thurs.aiomoney.nodes.eatpie.*;
-import org.thurs.aiomoney.nodes.fillvials.*;
-import org.thurs.aiomoney.nodes.grabbones.*;
-import org.thurs.aiomoney.nodes.grabfeathers.*;
-import org.thurs.aiomoney.nodes.openkits.*;
-import org.thurs.aiomoney.nodes.pickflax.*;
-import org.thurs.aiomoney.nodes.spinflax.*;
-import org.thurs.aiomoney.nodes.swamptar.*;
-import org.thurs.aiomoney.nodes.killunicorns.*;
-import org.thurs.aiomoney. nodes.drinkbrews.*;
-import org.thurs.aiomoney.nodes.drinkwine.*;
+
 
 import org.powerbot.core.event.listeners.PaintListener;
 import org.powerbot.core.script.ActiveScript;
