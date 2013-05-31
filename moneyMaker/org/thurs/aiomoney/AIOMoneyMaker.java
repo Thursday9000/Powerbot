@@ -67,7 +67,7 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 	}
 
 	// Node
-	public static final LinkedList<Node> NODES = new LinkedList<Node>();
+	public final LinkedList<Node> NODES = new LinkedList<Node>();
 
 	@Override
 	public int loop() {

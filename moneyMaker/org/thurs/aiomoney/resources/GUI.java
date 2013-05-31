@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+import org.thurs.aiomoney.AIOMoneyMaker;
 import org.thurs.aiomoney.nodes.chocdust.BankBars;
 import org.thurs.aiomoney.nodes.chocdust.CrushBars;
 import org.thurs.aiomoney.nodes.chocdust.InitialBankBars;
@@ -69,6 +70,7 @@ import org.thurs.aiomoney.nodes.swamptar.Pickup;
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
 	Variables var = new Variables();
+	AIOMoneyMaker node = new AIOMoneyMaker();
 	public GUI() {
 		initComponents();
 	}
@@ -120,80 +122,80 @@ public class GUI extends JFrame {
 				String chosen = comboBox1.getSelectedItem().toString();
 				if (chosen.equals("Swamp Tar")) {
 					var.method = "Swamp Tar Picking";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new Pickup());
+					node.NODES.add(new Pickup());
 				} else if (chosen.equals("Flax Picking")) {
 					var.method = "Picking Flax";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new FlaxPicking());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new FlaxBanking());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ToFlax());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ToBank());
+					node.NODES.add(new FlaxPicking());
+					node.NODES.add(new FlaxBanking());
+					node.NODES.add(new ToFlax());
+					node.NODES.add(new ToBank());
 				} else if (chosen.equals("Wine Drinking")) {
 					var.method = "Drinking Wine";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new DrinkWine());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankWine());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankWineOnStart());
+					node.NODES.add(new DrinkWine());
+					node.NODES.add(new BankWine());
+					node.NODES.add(new BankWineOnStart());
 				} else if (chosen.equals("Pie Eating")) {
 					var.method = "Eating Pie";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankPiesOnStart());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankPie());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new EatThePie());
+					node.NODES.add(new BankPiesOnStart());
+					node.NODES.add(new BankPie());
+					node.NODES.add(new EatThePie());
 				} else if (chosen.equals("Hunter Kits")) {
 					var.method = "Hunter Kits";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankKits());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new OpenKits());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankKitsOnStart());
+					node.NODES.add(new BankKits());
+					node.NODES.add(new OpenKits());
+					node.NODES.add(new BankKitsOnStart());
 				} else if (chosen.equals("Spin Flax")) {
 					var.method = "Flax Spinning";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new Spinning());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new StringBanking());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ToBankSpin());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ToSpinner());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ClimbLadder());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new ClimbDownLadder());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new Withdraw());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new GlitchFix());
+					node.NODES.add(new Spinning());
+					node.NODES.add(new StringBanking());
+					node.NODES.add(new ToBankSpin());
+					node.NODES.add(new ToSpinner());
+					node.NODES.add(new ClimbLadder());
+					node.NODES.add(new ClimbDownLadder());
+					node.NODES.add(new Withdraw());
+					node.NODES.add(new GlitchFix());
 				} else if (chosen.equals("Sara Brews")) {
 					var.method = "Drinking Sara Brews";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankBrewsOnStart());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankBrews());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new DrinkBrews());
+					node.NODES.add(new BankBrewsOnStart());
+					node.NODES.add(new BankBrews());
+					node.NODES.add(new DrinkBrews());
 				} else if (chosen.equals("Pickup Bones")) {
 					var.method = "Picking Up Bones";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BoneBank());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new PickBones());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new WalkToBones());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new WalkToBox());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new FixDaGlitch());
+					node.NODES.add(new BoneBank());
+					node.NODES.add(new PickBones());
+					node.NODES.add(new WalkToBones());
+					node.NODES.add(new WalkToBox());
+					node.NODES.add(new FixDaGlitch());
 				} else if (chosen.equals("Cow Hides")) {
 					var.method = "Picking Up Cow Hides";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new HideBank());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new PickupHides());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new WalkToHides());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new HidesToBank());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new AntiBan());
+					node.NODES.add(new HideBank());
+					node.NODES.add(new PickupHides());
+					node.NODES.add(new WalkToHides());
+					node.NODES.add(new HidesToBank());
+					node.NODES.add(new AntiBan());
 				} else if (chosen.equals("Pickup Feathers")) {
 					var.method = "Picking Up Feathers";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new PickupFeathers());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new FeatherBank());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new WalkToFeathers());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new FeathersToBank());
+					node.NODES.add(new PickupFeathers());
+					node.NODES.add(new FeatherBank());
+					node.NODES.add(new WalkToFeathers());
+					node.NODES.add(new FeathersToBank());
 				} else if (chosen.equals("Unicorn Horns")) {
 					var.method = "Gathering Unicorn Horns";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new KillUnicorns());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankToUnicorns());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new UnicornsToBank());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankHorns());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new WalkBackOnDeath());
+					node.NODES.add(new KillUnicorns());
+					node.NODES.add(new BankToUnicorns());
+					node.NODES.add(new UnicornsToBank());
+					node.NODES.add(new BankHorns());
+					node.NODES.add(new WalkBackOnDeath());
 				} else if (chosen.equals("Fill Vials")) {
 					var.method = "Filling Vials";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new VialFiller());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new VialBanker());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new InitialVialBank());
+					node.NODES.add(new VialFiller());
+					node.NODES.add(new VialBanker());
+					node.NODES.add(new InitialVialBank());
 				} else if (chosen.equals("Crush Chocolate Bars")) {
 					var.method = "Crushing Chocolate Bars";
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new CrushBars());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new BankBars());
-					org.thurs.aiomoney.AIOMoneyMaker.NODES.add(new InitialBankBars());
+					node.NODES.add(new CrushBars());
+					node.NODES.add(new BankBars());
+					node.NODES.add(new InitialBankBars());
 				}
 				setVisible(false);
 			}
