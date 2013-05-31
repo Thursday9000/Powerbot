@@ -6,7 +6,6 @@ import org.powerbot.core.script.util.Timer;
 import org.powerbot.game.api.methods.interactive.NPCs;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.GroundItems;
-import org.powerbot.game.api.methods.tab.Inventory;
 import org.powerbot.game.api.methods.widget.Camera;
 import org.powerbot.game.api.util.Filter;
 import org.powerbot.game.api.wrappers.interactive.NPC;
@@ -24,8 +23,6 @@ public class KillUnicorns extends Node {
 
 	@Override
 	public void execute() {
-		int hornCount = Inventory.getCount(Variables.UNICORN_ID);
-
 		if (!Players.getLocal().isInCombat()) {
 			Variables.method = "Killing Unicorns...";
 			NPC[] unicorns = NPCs.getLoaded(Variables.UNICORN_ID);
@@ -44,7 +41,7 @@ public class KillUnicorns extends Node {
 					Variables.method = "Killing Unicorns...";
 					unicorn.interact("Attack", "Unicorn");
 					Timer t = new Timer(3100);
-					while (t.isRunning()) {
+					while (t.isRunning() && !Players.getLocal().isInCombat()) {
 						Task.sleep(30);
 					}
 				}
@@ -68,7 +65,7 @@ public class KillUnicorns extends Node {
 					horn.interact("Take", "Unicorn horn");
 					Timer t = new Timer(2000);
 					while (t.isRunning()
-							&& Inventory.getCount(Variables.HORN_ID) <= hornCount) {
+							&& horn != null) {
 						Task.sleep(17);
 					}
 				} else {

@@ -9,8 +9,6 @@ import org.powerbot.game.api.util.Timer;
 import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkBrews extends Node {
-	
-
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(Variables.SARA_BREW_FULL) == 28
@@ -26,7 +24,7 @@ public class DrinkBrews extends Node {
 				Widgets.get(679, 0).getChild(x)
 						.interact("Drink", "Saradomin brew (2)");
 				Timer t = new Timer(1740);
-				while (t.isRunning()) {
+				while (t.isRunning() && Widgets.get(679, 0).getChild(x).isOnScreen()) {
 					Task.sleep(10);
 				}
 			}

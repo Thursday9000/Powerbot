@@ -27,15 +27,11 @@ public class HideBank extends Node {
 			Variables.status = "Banking...";
 			box.interact("Deposit");
 			Timer t = new Timer(3000);
-			while (t.isRunning()) {
+			while (t.isRunning() && !DepositBox.isOpen()) {
 				Task.sleep(10);
 			}
 			if (DepositBox.isOpen()) {
 				DepositBox.depositInventory();
-				Timer ti = new Timer(1490);
-				while (ti.isRunning() && Inventory.getCount() == 0) {
-					Task.sleep(10);
-				}
 				DepositBox.close();
 			}
 		} else {

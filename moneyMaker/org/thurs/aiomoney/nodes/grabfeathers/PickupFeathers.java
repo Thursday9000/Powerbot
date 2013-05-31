@@ -34,7 +34,7 @@ public class PickupFeathers extends Node {
 			if (feathers.isOnScreen()) {
 				feathers.interact("Take", "Feather");
 				Timer t = new Timer(1850);
-				while (t.isRunning()) {
+				while (t.isRunning() && feathers != null) {
 					Task.sleep(10);
 				}
 			} else {

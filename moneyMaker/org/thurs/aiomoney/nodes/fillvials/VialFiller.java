@@ -43,22 +43,18 @@ public class VialFiller extends Node {
 					break;
 			}
 			if (fill.validate()) {
-				Widgets.get(1371, 51).getChild(0).click(true); // The widget
-																// wasn't
-																// working
-																// correctly,
-																// #noh8
+				Widgets.get(1371, 51).getChild(0).click(true);
 				Timer t = new Timer(740);
-				while (t.isRunning()) {
+				while (t.isRunning() && Widgets.get(1371, 51).getChild(0).visible()) {
 					Task.sleep(10);
 				}
 				Widgets.get(1371, 62).getChild(0).interact("Select");
-				while (t.isRunning()) {
+				while (t.isRunning() && Widgets.get(1371, 62).getChild(0).visible()) {
 					Task.sleep(10);
 				}
 				Widgets.get(1371, 44).getChild(2).interact("Select");
 				Timer t1 = new Timer(2350);
-				while (t1.isRunning()) {
+				while (t1.isRunning() && Widgets.get(1371, 44).getChild(2).visible()) {
 					Task.sleep(10);
 				}
 				Mouse.click(fill.getCentralPoint(), true);

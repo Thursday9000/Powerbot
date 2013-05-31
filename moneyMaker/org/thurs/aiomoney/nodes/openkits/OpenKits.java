@@ -20,10 +20,10 @@ public class OpenKits extends Node {
 	@Override
 	public void execute() {
 		Variables.status = "Opening Kits...";
-		for (int x = 0; x < 5; x++) {
+		for (int x = 0; x < 4; x++) {
 			Widgets.get(679, 0).getChild(3).interact("Open", "Hunter kit");
 			Timer t = new Timer(1750);
-			while (t.isRunning()) {
+			while (t.isRunning() && Inventory.getCount() <= 28) {
 				Task.sleep(15);
 			}
 		}

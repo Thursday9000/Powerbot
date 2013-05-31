@@ -1,8 +1,6 @@
 package org.thurs.aiomoney.nodes.drinkwine;
 
-import org.powerbot.core.script.job.Task;
 import org.powerbot.core.script.job.state.Node;
-import org.powerbot.core.script.util.Timer;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.node.SceneEntities;
 import org.powerbot.game.api.methods.tab.Inventory;
@@ -10,7 +8,6 @@ import org.powerbot.game.api.methods.widget.Bank;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BankWine extends Node {
-	
 
 	@Override
 	public boolean activate() {
@@ -23,10 +20,6 @@ public class BankWine extends Node {
 	public void execute() {
 		Variables.status = "Banking...";
 		Bank.open();
-		Timer t = new Timer(1750);
-		while (t.isRunning()) {
-			Task.sleep(15);
-		}
 		if (Bank.isOpen()) {
 			Bank.deposit(Variables.JUG, 28);
 			if (!Inventory.contains(Variables.FULL_WINE) && Bank.isOpen()
@@ -36,5 +29,4 @@ public class BankWine extends Node {
 			Bank.close();
 		}
 	}
-
 }

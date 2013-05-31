@@ -16,6 +16,7 @@ public class Variables {
 	public static final int VARROCK_BANKER = 553;
 	public static final int APPLE_PIE = 2323;
 	public static final int PIE_DISH = 2313;
+	public static final int HALF_PIE = 2335;
 	public static final int HUNTER_KIT = 11159;
 	public static final int NOOSE_WAND = 10150;
 	public static final int BUTTERFLY_NET = 10010;
@@ -154,7 +155,7 @@ public class Variables {
 			new Tile(3243, 3252, 0), new Tile(3239, 3298, 0),
 			new Tile(3268, 3297, 0) });
 
-	final Area LUMBY_AREA = new Area(new Tile[] { new Tile(3209, 3219, 0),
+	public static final Area LUMBY_AREA = new Area(new Tile[] { new Tile(3209, 3219, 0),
 			new Tile(3208, 3224, 0), new Tile(3207, 3229, 0),
 			new Tile(3210, 3233, 0), new Tile(3215, 3232, 0),
 			new Tile(3220, 3230, 0), new Tile(3225, 3228, 0),
@@ -168,7 +169,7 @@ public class Variables {
 			new Tile(3199, 3226, 0), new Tile(3201, 3231, 0),
 			new Tile(3204, 3235, 0) });
 
-	public static Area COW_AREA = new Area(new Tile[] { new Tile(3267, 3255, 0),
+	public static final Area COW_AREA = new Area(new Tile[] { new Tile(3267, 3255, 0),
 			new Tile(3269, 3260, 0), new Tile(3270, 3265, 0),
 			new Tile(3271, 3270, 0), new Tile(3271, 3275, 0),
 			new Tile(3271, 3280, 0), new Tile(3269, 3285, 0),
@@ -183,12 +184,12 @@ public class Variables {
 			new Tile(3252, 3256, 0), new Tile(3253, 3251, 0),
 			new Tile(3250, 3255, 0), new Tile(3269, 3252, 0) });
 
-	public static Area COW_HIDE_ANTI_BAN = new Area(new Tile[] {
+	public static final Area COW_HIDE_ANTI_BAN = new Area(new Tile[] {
 			new Tile(3239, 3289, 0), new Tile(3234, 3287, 0),
 			new Tile(3233, 3282, 0), new Tile(3237, 3279, 0),
 			new Tile(3242, 3278, 0) });
 
-	final Area DEPOSITBOX_AREA = new Area(new Tile[] { new Tile(3212, 3265, 0),
+	public static final Area DEPOSITBOX_AREA = new Area(new Tile[] { new Tile(3212, 3265, 0),
 			new Tile(3210, 3260, 0), new Tile(3215, 3258, 0),
 			new Tile(3218, 3262, 0), new Tile(3215, 3267, 0),
 			new Tile(3210, 3267, 0), new Tile(3208, 3262, 0),
@@ -375,6 +376,6 @@ public class Variables {
 			new Tile(3236, 3283, 0), new Tile(3237, 3288, 0),
 			new Tile(3239, 3293, 0), new Tile(3235, 3296, 0) };
 
-	static final Area ftile = new Area(new Tile[] { new Tile(3159, 3491, 0),
+	public static final Area ftile = new Area(new Tile[] { new Tile(3159, 3491, 0),
 			new Tile(3159, 39492, 0) });
 }

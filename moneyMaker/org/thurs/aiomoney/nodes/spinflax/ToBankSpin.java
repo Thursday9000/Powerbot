@@ -24,7 +24,7 @@ public class ToBankSpin extends Node {
 				"Open", "Door");
 		Timer t = new Timer(1500);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(Variables.CLOSED_DOOR) == null) {
+				&& SceneEntities.getNearest(Variables.CLOSED_DOOR) != null) {
 			Task.sleep(10);
 		}
 		Walking.newTilePath(Variables.SPINNER_TO_BANK).traverse();

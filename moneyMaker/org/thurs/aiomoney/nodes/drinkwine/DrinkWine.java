@@ -9,7 +9,6 @@ import org.powerbot.game.api.methods.tab.Inventory;
 import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkWine extends Node {
-	
 
 	@Override
 	public boolean activate() {
@@ -27,7 +26,8 @@ public class DrinkWine extends Node {
 				Widgets.get(679, 0).getChild(x)
 						.interact("Drink", "Jug of wine");
 				Timer t = new Timer(2500);
-				while (t.isRunning()) {
+				while (t.isRunning()
+						&& Widgets.get(679, 0).getChild(x).isOnScreen()) {
 					Task.sleep(2300, 2800);
 				}
 			}

@@ -27,7 +27,7 @@ public class HidesToBank extends Node {
 					&& Variables.COW_AREA.contains(Players.getLocal())) {
 				SceneEntities.getNearest(45212).interact("Open", "Gate");
 				Timer t = new Timer(1340);
-				while (t.isRunning() && SceneEntities.getLoaded(45212) == null) {
+				while (t.isRunning() && SceneEntities.getLoaded(45212) != null) {
 					Task.sleep(10);
 				}
 			}

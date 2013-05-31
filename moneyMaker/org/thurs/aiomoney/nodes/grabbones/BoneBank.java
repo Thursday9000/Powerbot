@@ -11,7 +11,8 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 public class BoneBank extends Node {
-	
+	Timer t = new Timer(1750);
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(Variables.BONE_ID) == 28
@@ -20,20 +21,15 @@ public class BoneBank extends Node {
 
 	@Override
 	public void execute() {
-		SceneObject box = SceneEntities
-				.getNearest(Variables.LUMBY_BOX);
+		SceneObject box = SceneEntities.getNearest(Variables.LUMBY_BOX);
 		if (box.isOnScreen()) {
 			Variables.status = "Banking...";
 			box.interact("Deposit");
-			Timer t = new Timer(1000);
-			while (t.isRunning()) {
-				Task.sleep(10);
+			while (t.isRunning() && !DepositBox.isOpen()) {
+				Task.sleep(15);
 			}
 			if (DepositBox.isOpen()) {
 				DepositBox.depositInventory();
-				while (t.isRunning() && Inventory.getCount() == 0) {
-					Task.sleep(10);
-				}
 				DepositBox.close();
 			}
 		} else {

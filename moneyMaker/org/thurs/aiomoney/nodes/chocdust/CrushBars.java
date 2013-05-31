@@ -5,42 +5,55 @@ import org.powerbot.core.script.job.state.Node;
 import org.powerbot.game.api.methods.Widgets;
 import org.powerbot.game.api.methods.interactive.Players;
 import org.powerbot.game.api.methods.tab.Inventory;
+import org.powerbot.game.api.methods.widget.Bank;
 import org.powerbot.game.api.util.Timer;
+import org.powerbot.game.api.wrappers.interactive.Player;
 import org.powerbot.game.api.wrappers.node.Item;
+import org.powerbot.game.api.wrappers.widget.WidgetChild;
 import org.thurs.aiomoney.resources.Variables;
 
 public class CrushBars extends Node {
-	
+	final private WidgetChild CONFIRM_BUTTON = Widgets.get(1370, 35);
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(Variables.CHOCOLATE_BAR) <= 28
-				&& Variables.VARROCK_BANK.contains(Players.getLocal())
-				&& Players.getLocal().isIdle();
+		Player player = Players.getLocal();
+		return Inventory.getCount(Variables.CHOCOLATE_BAR) == 28
+				&& Variables.VARROCK_BANK.contains(player)
+				&& player.isIdle()
+				&& !Bank.isOpen();
 	}
 
 	@Override
 	public void execute() {
-		Item bars = Inventory.getItem(Variables.CHOCOLATE_BAR);
 		Variables.status = "Crushing bars...";
-		if (Variables.VARROCK_BANK.contains(Players.getLocal())
-				&& Widgets.get(548).getChild(172).visible()) {
-			bars.getWidgetChild().interact("Powder", "Chocolate bar");
-			Timer t = new Timer(1550);
-			while (t.isRunning()) {
-				Task.sleep(10);
+		if (!CONFIRM_BUTTON.visible()) {
+			Item chocolateBar = Inventory.getItem(Variables.CHOCOLATE_BAR);
+
+			if (chocolateBar.getWidgetChild().interact("Powder",
+					chocolateBar.getName())) {
+
+				for (Timer t = new Timer(2000); t.isRunning()
+						&& !CONFIRM_BUTTON.visible(); Task.sleep(50))
+					;
 			}
-			Widgets.get(1371, 44).getChild(2).interact("Select");
-			Timer ti = new Timer(535);
-			while (ti.isRunning()) {
-				Task.sleep(500, 550);
-			}
-			Widgets.get(1370, 35).getChild(0)
-					.interact("Make 28 Chocolate dust");
-			Timer tim = new Timer(2340);
-			while (tim.isRunning()) {
-				Task.sleep(10);
-			}
+
+		} else {
+			WidgetChild chocBarSelect = Widgets.get(1371, 44).getChild(1);
+			if (chocBarSelect.getTextureId() == -1) {
+					if (chocBarSelect.interact("Select")) {
+				for (Timer t = new Timer(2000); t.isRunning()
+						&& chocBarSelect.getTextureId() == -1; Task
+						.sleep(50))
+					;
+					}
+			} else if (CONFIRM_BUTTON.interact("Make")) {
+					for (Timer t = new Timer(2000); t.isRunning()
+							&& CONFIRM_BUTTON.visible(); Task
+							.sleep(50))
+						;
+				}
 		}
+		Task.sleep(200, 500);
 	}
 }

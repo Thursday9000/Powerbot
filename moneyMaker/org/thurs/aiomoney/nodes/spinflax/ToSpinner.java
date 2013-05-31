@@ -24,7 +24,7 @@ public class ToSpinner extends Node {
 				"Open", "Door");
 		Timer t = new Timer(1740);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(Variables.CLOSED_DOOR) == null) {
+				&& SceneEntities.getNearest(Variables.CLOSED_DOOR) != null) {
 			Task.sleep(15);
 		}
 		Walking.newTilePath(Variables.BANK_TO_SPINNER).traverse();

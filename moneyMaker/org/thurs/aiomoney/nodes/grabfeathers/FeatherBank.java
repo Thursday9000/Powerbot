@@ -11,7 +11,7 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 public class FeatherBank extends Node {
-	
+	Timer t = new Timer(1750);
 
 	@Override
 	public boolean activate() {
@@ -25,11 +25,9 @@ public class FeatherBank extends Node {
 		if (box.isOnScreen()) {
 			Variables.status = "Banking...";
 			box.interact("Deposit");
-			Timer t = new Timer(1000);
-			while (t.isRunning()) {
-				Task.sleep(10);
+			while (t.isRunning() && !DepositBox.isOpen()) {
+				Task.sleep(15);
 			}
-
 			DepositBox.close();
 
 		} else {

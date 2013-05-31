@@ -24,7 +24,7 @@ public class ClimbDownLadder extends Node {
 				"Ladder");
 		Timer t = new Timer(2350);
 		while (t.isRunning()
-				&& SceneEntities.getNearest(Variables.LADDER_ID2) == null) {
+				&& SceneEntities.getNearest(Variables.LADDER_ID2) != null) {
 			Task.sleep(20);
 			Variables.status = "Climbing ladder...";
 		}

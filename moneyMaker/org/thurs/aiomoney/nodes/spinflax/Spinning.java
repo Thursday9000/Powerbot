@@ -15,7 +15,7 @@ public class Spinning extends Node {
 
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(Variables.INV_FLAX) > 24
+		return Inventory.getCount(Variables.INV_FLAX) < 27
 				&& SceneEntities.getLoaded(Variables.SPINNER) != null;
 	}
 
@@ -25,16 +25,16 @@ public class Spinning extends Node {
 		Camera.setPitch(3);
 		SceneObject spinner = SceneEntities.getNearest(Variables.SPINNER);
 		if (spinner.isOnScreen()
-				&& SceneEntities.getLoaded(Variables.SPINNER) != null) {
+				&& SceneEntities.getLoaded(Variables.SPINNER) != null && !Widgets.get(1370).getChild(38).visible() && Widgets.get(1251).getChild(41).visible()) {
 			spinner.interact("Spin", "Spinning wheel");
 			Timer t = new Timer(1500);
-			while (t.isRunning()) {
+			while (t.isRunning() && !Widgets.get(1370).getChild(38).visible()) {
 				Task.sleep(20);
 			}
 			if (Widgets.get(1370).getChild(38).visible()) {
 				Widgets.get(1370).getChild(38).interact("Make 27 Bow string");
-				Timer ti = new Timer(40000);
-				while (ti.isRunning()) {
+				Timer ti = new Timer(2500);
+				while (ti.isRunning() && !Widgets.get(1370).getChild(38).visible()) {
 					Task.sleep(40);
 				}
 			}
