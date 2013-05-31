@@ -11,14 +11,12 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class BankPiesOnStart extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 0
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& SceneEntities
-						.getLoaded(var.VARROCK_BANKER) != null
-				&& var.eatPie;
+				&& var.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
 	}
 
 	@Override
@@ -32,8 +30,7 @@ public class BankPiesOnStart extends Node {
 		if (Bank.isOpen()) {
 			Bank.withdraw(var.APPLE_PIE, 28);
 			Timer ti = new Timer(1740);
-			while (ti.isRunning()
-					&& Inventory.getCount(var.APPLE_PIE) == 28) {
+			while (ti.isRunning() && Inventory.getCount(var.APPLE_PIE) == 28) {
 				Task.sleep(10);
 			}
 

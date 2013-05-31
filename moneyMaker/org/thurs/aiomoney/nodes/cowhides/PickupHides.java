@@ -14,19 +14,14 @@ import org.thurs.aiomoney.resources.Variables;
 //Pickup
 public class PickupHides extends Node {
 	Variables var = new Variables();
-	int hideCount = Inventory
-			.getCount(var.COW_HIDES);
+	int hideCount = Inventory.getCount(var.COW_HIDES);
 
 	@Override
 	public boolean activate() {
-		return var.COW_AREA.contains(Players
-				.getLocal())
+		return var.COW_AREA.contains(Players.getLocal())
 				&& Players.getLocal().isIdle()
-				&& GroundItems
-						.getLoaded(var.COW_HIDES) != null
-				&& Inventory
-						.getCount(var.COW_HIDES) < 29
-				&& var.pickupHides;
+				&& GroundItems.getLoaded(var.COW_HIDES) != null
+				&& Inventory.getCount(var.COW_HIDES) < 29;
 	}
 
 	@Override

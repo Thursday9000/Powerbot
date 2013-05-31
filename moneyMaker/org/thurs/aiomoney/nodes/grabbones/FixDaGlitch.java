@@ -13,8 +13,7 @@ public class FixDaGlitch extends Node {
 	@Override
 	public boolean activate() {
 		return var.BONE_COW_AREA.contains(Players
-				.getLocal())
-				&& var.pickupBones;
+				.getLocal());
 	}
 
 	@Override

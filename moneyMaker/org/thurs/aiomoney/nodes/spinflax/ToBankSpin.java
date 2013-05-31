@@ -15,8 +15,7 @@ public class ToBankSpin extends Node {
 	public boolean activate() {
 		return Inventory.getCount(var.BOW_STRING) == 27
 				&& var.SPINNER_AREA
-						.contains(Players.getLocal())
-				&& var.spinFlax;
+						.contains(Players.getLocal());
 	}
 
 	@Override

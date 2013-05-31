@@ -7,10 +7,10 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class WalkToBox extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.BONE_ID) == 28
-				&& var.pickupBones;
+		return Inventory.getCount(var.BONE_ID) == 28;
 	}
 
 	@Override

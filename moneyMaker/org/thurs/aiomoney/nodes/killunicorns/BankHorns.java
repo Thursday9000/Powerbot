@@ -10,11 +10,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class BankHorns extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.HORN_ID) >= 28
-				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
-				&& var.unicornKill;
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
 	}
 
 	@Override

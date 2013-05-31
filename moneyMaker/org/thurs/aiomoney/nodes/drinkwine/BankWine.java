@@ -11,14 +11,12 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class BankWine extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.JUG) == 28
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& SceneEntities
-						.getLoaded(var.VARROCK_BANKER) != null
-				&& var.drinkWine;
+				&& var.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
 	}
 
 	@Override
@@ -31,8 +29,7 @@ public class BankWine extends Node {
 		}
 		if (Bank.isOpen()) {
 			Bank.deposit(var.JUG, 28);
-			if (!Inventory.contains(var.FULL_WINE)
-					&& Bank.isOpen()
+			if (!Inventory.contains(var.FULL_WINE) && Bank.isOpen()
 					&& Bank.getItem(var.FULL_WINE) != null) {
 				Bank.withdraw(var.FULL_WINE, 28);
 			}

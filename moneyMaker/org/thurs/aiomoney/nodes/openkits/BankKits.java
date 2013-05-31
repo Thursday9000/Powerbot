@@ -18,8 +18,7 @@ public class BankKits extends Node {
 						.getLoaded(var.VARROCK_BANKER) != null
 				&& !Inventory.contains(var.HUNTER_KIT)
 				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& var.openKits == true;
+						.getLocal());
 	}
 
 	@Override

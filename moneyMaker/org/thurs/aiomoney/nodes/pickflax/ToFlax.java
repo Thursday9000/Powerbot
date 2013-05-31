@@ -8,11 +8,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class ToFlax extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 0
-				&& !var.FLAX_AREA.contains(Players.getLocal())
-				&& var.flaxPicking;
+				&& !var.FLAX_AREA.contains(Players.getLocal());
 	}
 
 	@Override

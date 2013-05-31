@@ -10,12 +10,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class DrinkBrews extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.SARA_BREW_FULL) == 28
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& var.drinkBrews
+				&& var.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 

@@ -15,8 +15,7 @@ public class BoneBank extends Node {
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.BONE_ID) == 28
-				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
-				&& var.pickupBones;
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
 	}
 
 	@Override

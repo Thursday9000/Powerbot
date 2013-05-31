@@ -18,8 +18,7 @@ public class FlaxBanking extends Node {
 				&& var.SEERS_BANK_AREA.contains(Players
 						.getLocal())
 				&& SceneEntities
-						.getLoaded(var.SEERS_BANKER) != null
-				&& var.flaxPicking;
+						.getLoaded(var.SEERS_BANKER) != null;
 	}
 
 	@Override

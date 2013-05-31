@@ -15,12 +15,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class KillUnicorns extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return NPCs.getNearest(var.UNICORN_ID) != null
-				&& var.UNICORN_AREA.contains(Players
-						.getLocal())
-				&& var.unicornKill;
+				&& var.UNICORN_AREA.contains(Players.getLocal());
 	}
 
 	@Override
@@ -52,17 +51,16 @@ public class KillUnicorns extends Node {
 			}
 		}
 		if (GroundItems.getLoaded(var.HORN_ID) != null
-				&& var.UNICORN_AREA.contains(Players
-						.getLocal()) && Players.getLocal().isIdle()) {
+				&& var.UNICORN_AREA.contains(Players.getLocal())
+				&& Players.getLocal().isIdle()) {
 			Camera.setPitch(32);
-			GroundItem horn = GroundItems
-					.getNearest(new Filter<GroundItem>() {
+			GroundItem horn = GroundItems.getNearest(new Filter<GroundItem>() {
 
-						public boolean accept(GroundItem e) {
-							return e.getId() == var.HORN_ID;
-						}
+				public boolean accept(GroundItem e) {
+					return e.getId() == var.HORN_ID;
+				}
 
-					});
+			});
 			if (horn != null) {
 				if (horn.isOnScreen()) {
 					var.status = "Picking up Horns...";
@@ -70,8 +68,7 @@ public class KillUnicorns extends Node {
 					horn.interact("Take", "Unicorn horn");
 					Timer t = new Timer(2000);
 					while (t.isRunning()
-							&& Inventory
-									.getCount(var.HORN_ID) <= hornCount) {
+							&& Inventory.getCount(var.HORN_ID) <= hornCount) {
 						Task.sleep(17);
 					}
 				} else {

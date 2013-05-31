@@ -14,8 +14,7 @@ public class GlitchFixSpin extends Node {
 
 		return var.GLITCH_AREA.contains(Players
 				.getLocal())
-				&& Inventory.getCount() == 27
-				&& var.spinFlax;
+				&& Inventory.getCount() == 27;
 	}
 
 	@Override

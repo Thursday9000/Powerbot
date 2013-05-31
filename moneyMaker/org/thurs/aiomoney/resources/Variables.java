@@ -45,21 +45,6 @@ public class Variables {
 	public final  int CHOCOLATE_BAR = 1973;
 	public final  int CHOCOLATE_DUST = 1975;
 
-	// Booleans
-	public  boolean takeHides = false;
-	public  boolean tarPickup = false;
-	public  boolean flaxPicking = false;
-	public  boolean drinkWine = false;
-	public  boolean eatPie = false;
-	public  boolean openKits = false;
-	public  boolean spinFlax = false;
-	public  boolean drinkBrews = false;
-	public  boolean pickupBones = false;
-	public  boolean pickupHides = false;
-	public  boolean pickupFeathers = false;
-	public  boolean unicornKill = false;
-	public  boolean fillVials = false;
-	public  boolean crushBars = false;
 
 	// Strings
 	public String method;

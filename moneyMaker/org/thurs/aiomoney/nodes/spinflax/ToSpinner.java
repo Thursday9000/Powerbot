@@ -15,7 +15,7 @@ public class ToSpinner extends Node {
 	public boolean activate() {
 		return Inventory.getCount(var.INV_FLAX) == 27
 				&& var.SEERS_BANK_AREA.contains(Players
-						.getLocal()) && var.spinFlax;
+						.getLocal());
 	}
 
 	@Override

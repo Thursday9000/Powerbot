@@ -9,10 +9,10 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class InitialVialBank extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.VIALS) == 0
-				&& var.fillVials;
+		return Inventory.getCount(var.VIALS) == 0;
 	}
 
 	@Override

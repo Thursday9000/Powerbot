@@ -15,15 +15,12 @@ public class PickBones extends Node {
 	Variables var = new Variables();
 	int boneCount = Inventory.getCount(var.BONE_ID);
 
-
 	@Override
 	public boolean activate() {
-		return var.BONE_AREA.contains(Players.getLocal()
-				)
+		return var.BONE_AREA.contains(Players.getLocal())
 				&& Players.getLocal().isIdle()
 				&& GroundItems.getLoaded(var.BONE_ID) != null
-				&& Inventory.getCount(var.BONE_ID) < 28
-				&& var.pickupBones;
+				&& Inventory.getCount(var.BONE_ID) < 28;
 	}
 
 	@Override

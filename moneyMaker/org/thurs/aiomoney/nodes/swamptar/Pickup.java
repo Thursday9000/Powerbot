@@ -13,13 +13,12 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class Pickup extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Players.getLocal().isIdle()
-				&& var.TAR_LOCATION.contains(Players
-						.getLocal())
-				&& GroundItems.getLoaded(var.TAR_ID) != null
-				&& var.tarPickup;
+				&& var.TAR_LOCATION.contains(Players.getLocal())
+				&& GroundItems.getLoaded(var.TAR_ID) != null;
 	}
 
 	@Override

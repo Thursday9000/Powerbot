@@ -12,17 +12,16 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class FeatherBank extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.FEATHER_ID) == 28
-				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
-				&& var.pickupFeathers;
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
 	}
 
 	@Override
 	public void execute() {
-		SceneObject box = SceneEntities
-				.getNearest(var.LUMBY_BOX);
+		SceneObject box = SceneEntities.getNearest(var.LUMBY_BOX);
 		if (box.isOnScreen()) {
 			var.status = "Banking...";
 			box.interact("Deposit");

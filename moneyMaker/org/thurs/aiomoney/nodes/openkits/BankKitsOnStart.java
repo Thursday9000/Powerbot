@@ -17,8 +17,7 @@ public class BankKitsOnStart extends Node {
 				&& var.VARROCK_BANK.contains(Players
 						.getLocal())
 				&& SceneEntities
-						.getLoaded(var.VARROCK_BANKER) != null
-				&& var.drinkBrews;
+						.getLoaded(var.VARROCK_BANKER) != null;
 	}
 
 	@Override

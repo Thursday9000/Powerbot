@@ -12,26 +12,24 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class PickupFeathers extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Players.getLocal().isIdle()
-				&& var.FEATHER_AREA.contains(Players
-						.getLocal())
-				&& GroundItems.getLoaded(var.FEATHER_ID) != null
-				&& var.pickupFeathers;
+				&& var.FEATHER_AREA.contains(Players.getLocal())
+				&& GroundItems.getLoaded(var.FEATHER_ID) != null;
 	}
 
 	@Override
 	public void execute() {
 		var.status = "Taking Feathers...";
-		GroundItem feathers = GroundItems
-				.getNearest(new Filter<GroundItem>() {
+		GroundItem feathers = GroundItems.getNearest(new Filter<GroundItem>() {
 
-					public boolean accept(GroundItem e) {
-						return e.getId() == var.FEATHER_ID;
-					}
+			public boolean accept(GroundItem e) {
+				return e.getId() == var.FEATHER_ID;
+			}
 
-				});
+		});
 		if (feathers != null) {
 			if (feathers.isOnScreen()) {
 				feathers.interact("Take", "Feather");

@@ -10,11 +10,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class EatThePie extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.APPLE_PIE) == 28
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal()) && var.eatPie
+				&& var.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 
@@ -24,14 +24,12 @@ public class EatThePie extends Node {
 		if (var.VARROCK_BANK.contains(Players.getLocal())
 				&& Widgets.get(548).getChild(172).visible()) {
 			for (int x = 0; x < 28; x++) {
-				Widgets.get(679, 0).getChild(x)
-						.interact("Eat", "Apple Pie");
+				Widgets.get(679, 0).getChild(x).interact("Eat", "Apple Pie");
 				Timer t = new Timer(1490);
 				while (t.isRunning()) {
 					Task.sleep(10);
 				}
-				Widgets.get(679, 0).getChild(x)
-						.interact("Eat", "Apple Pie");
+				Widgets.get(679, 0).getChild(x).interact("Eat", "Apple Pie");
 				while (t.isRunning()) {
 					Task.sleep(10);
 				}

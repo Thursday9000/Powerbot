@@ -14,8 +14,7 @@ public class OpenKits extends Node {
 	public boolean activate() {
 		return Inventory.getCount(var.HUNTER_KIT) == 4
 				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& var.openKits == true;
+						.getLocal());
 	}
 
 	@Override

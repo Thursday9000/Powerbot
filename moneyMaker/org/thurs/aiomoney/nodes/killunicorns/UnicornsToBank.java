@@ -7,18 +7,17 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class UnicornsToBank extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.HORN_ID) == 28
-				&& var.unicornKill;
+		return Inventory.getCount(var.HORN_ID) == 28;
 
 	}
 
 	@Override
 	public void execute() {
 		var.status = "Walking...";
-		Walking.newTilePath(var.UNICORNS_TO_BANK)
-				.traverse();
+		Walking.newTilePath(var.UNICORNS_TO_BANK).traverse();
 	}
 
 }

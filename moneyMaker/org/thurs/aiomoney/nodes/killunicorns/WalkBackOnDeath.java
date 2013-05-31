@@ -7,19 +7,16 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class WalkBackOnDeath extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return !var.UNICORN_AREA.contains(Players
-				.getLocal())
-				&& !var.HORN_BANK.contains(Players
-						.getLocal())
-				&& var.unicornKill;
+		return !var.UNICORN_AREA.contains(Players.getLocal())
+				&& !var.HORN_BANK.contains(Players.getLocal());
 	}
 
 	@Override
 	public void execute() {
-		Walking.newTilePath(var.LUMBY_TO_UNICORNS)
-				.traverse();
+		Walking.newTilePath(var.LUMBY_TO_UNICORNS).traverse();
 	}
 
 }

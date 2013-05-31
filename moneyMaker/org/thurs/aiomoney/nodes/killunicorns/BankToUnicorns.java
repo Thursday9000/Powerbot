@@ -11,7 +11,6 @@ public class BankToUnicorns extends Node {
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.HORN_ID) == 0
-				&& var.unicornKill
 				&& !var.UNICORN_AREA.contains(Players
 						.getLocal());
 	}

@@ -11,25 +11,22 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class WalkToHides extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.COW_HIDES) == 0
-				&& var.pickupHides;
+		return Inventory.getCount(var.COW_HIDES) == 0;
 	}
 
 	@Override
 	public void execute() {
 		var.status = "Walking...";
-		Walking.newTilePath(var.DEPOSITBOX_TO_HIDES)
-				.traverse();
+		Walking.newTilePath(var.DEPOSITBOX_TO_HIDES).traverse();
 		{
 			if (SceneEntities.getLoaded(45212) != null
-					&& var.COW_AREA.contains(Players
-							.getLocal())) {
+					&& var.COW_AREA.contains(Players.getLocal())) {
 				SceneEntities.getNearest(45212).interact("Open", "Gate");
 				Timer t = new Timer(1340);
-				while (t.isRunning()
-						&& SceneEntities.getLoaded(45212) == null) {
+				while (t.isRunning() && SceneEntities.getLoaded(45212) == null) {
 					Task.sleep(10);
 				}
 			}

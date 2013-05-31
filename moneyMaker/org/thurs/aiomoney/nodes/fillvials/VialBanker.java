@@ -8,11 +8,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class VialBanker extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 
-		return Inventory.getCount(var.WATER_VIALS) == 28
-				&& var.fillVials;
+		return Inventory.getCount(var.WATER_VIALS) == 28;
 	}
 
 	@Override

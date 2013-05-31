@@ -12,15 +12,11 @@ import org.thurs.aiomoney.resources.Variables;
 public class BankBars extends Node {
 	Variables var = new Variables();
 
-
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.CHOCOLATE_DUST) == 28
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& SceneEntities
-						.getLoaded(var.VARROCK_BANKER) != null
-				&& var.crushBars;
+				&& var.VARROCK_BANK.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(var.VARROCK_BANKER) != null;
 	}
 
 	@Override
@@ -33,8 +29,7 @@ public class BankBars extends Node {
 		}
 		if (Bank.isOpen()) {
 			Bank.deposit(var.CHOCOLATE_DUST, 28);
-			if (!Inventory.contains(var.CHOCOLATE_BAR)
-					&& Bank.isOpen()
+			if (!Inventory.contains(var.CHOCOLATE_BAR) && Bank.isOpen()
 					&& Bank.getItem(var.CHOCOLATE_BAR) != null) {
 				Bank.withdraw(var.CHOCOLATE_BAR, 28);
 			}

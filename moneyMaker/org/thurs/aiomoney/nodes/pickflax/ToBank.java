@@ -8,11 +8,11 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class ToBank extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 28
-				&& !var.SEERS_BANK_AREA.contains(Players
-						.getLocal()) && var.flaxPicking;
+				&& !var.SEERS_BANK_AREA.contains(Players.getLocal());
 	}
 
 	@Override

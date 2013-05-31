@@ -11,10 +11,10 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class FeathersToBank extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return Inventory.getCount(var.FEATHER_ID) == 28
-				&& var.pickupFeathers;
+		return Inventory.getCount(var.FEATHER_ID) == 28;
 
 	}
 
@@ -24,8 +24,7 @@ public class FeathersToBank extends Node {
 		Walking.newTilePath(var.FEATHER_TO_BANK).traverse();
 		{
 			if (SceneEntities.getLoaded(45206) != null
-					&& var.FEATHER_AREA.contains(Players
-							.getLocal())) {
+					&& var.FEATHER_AREA.contains(Players.getLocal())) {
 				SceneEntities.getNearest(45206).interact("Open", "Gate");
 				Timer t = new Timer(1350);
 				while (t.isRunning() && SceneEntities.getLoaded(45206) == null) {

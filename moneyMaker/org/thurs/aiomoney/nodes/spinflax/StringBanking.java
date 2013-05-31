@@ -18,8 +18,7 @@ public class StringBanking extends Node {
 				&& var.SEERS_BANK_AREA.contains(Players
 						.getLocal())
 				&& SceneEntities
-						.getLoaded(var.SEERS_BANKER) != null
-				&& var.spinFlax;
+						.getLoaded(var.SEERS_BANKER) != null;
 	}
 
 	@Override

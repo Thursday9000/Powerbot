@@ -15,9 +15,7 @@ public class CrushBars extends Node {
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.CHOCOLATE_BAR) <= 28
-				&& var.VARROCK_BANK.contains(Players
-						.getLocal())
-				&& var.crushBars
+				&& var.VARROCK_BANK.contains(Players.getLocal())
 				&& Players.getLocal().isIdle();
 	}
 

@@ -11,38 +11,37 @@ import org.powerbot.game.api.wrappers.node.SceneObject;
 import org.thurs.aiomoney.resources.Variables;
 
 //Bank
-	public class HideBank extends Node {
-		Variables var = new Variables();
-		@Override
-		public boolean activate() {
-			return Inventory.getCount(var.COW_HIDES) == 28
-					&& SceneEntities.getLoaded(var.LUMBY_BOX) != null
-					&& var.pickupHides;
-		}
+public class HideBank extends Node {
+	Variables var = new Variables();
 
-		@Override
-		public void execute() {
-			SceneObject box = SceneEntities
-					.getNearest(var.LUMBY_BOX);
-			if (box.isOnScreen()) {
-				var.status = "Banking...";
-				box.interact("Deposit");
-				Timer t = new Timer(3000);
-				while (t.isRunning()) {
+	@Override
+	public boolean activate() {
+		return Inventory.getCount(var.COW_HIDES) == 28
+				&& SceneEntities.getLoaded(var.LUMBY_BOX) != null;
+	}
+
+	@Override
+	public void execute() {
+		SceneObject box = SceneEntities.getNearest(var.LUMBY_BOX);
+		if (box.isOnScreen()) {
+			var.status = "Banking...";
+			box.interact("Deposit");
+			Timer t = new Timer(3000);
+			while (t.isRunning()) {
+				Task.sleep(10);
+			}
+			if (DepositBox.isOpen()) {
+				DepositBox.depositInventory();
+				Timer ti = new Timer(1490);
+				while (ti.isRunning() && Inventory.getCount() == 0) {
 					Task.sleep(10);
 				}
-				if (DepositBox.isOpen()) {
-					DepositBox.depositInventory();
-					Timer ti = new Timer(1490);
-					while (ti.isRunning() && Inventory.getCount() == 0) {
-						Task.sleep(10);
-					}
-					DepositBox.close();
-				}
-			} else {
-				Camera.turnTo(box);
-				Camera.setPitch(3);
-
+				DepositBox.close();
 			}
+		} else {
+			Camera.turnTo(box);
+			Camera.setPitch(3);
+
 		}
 	}
+}

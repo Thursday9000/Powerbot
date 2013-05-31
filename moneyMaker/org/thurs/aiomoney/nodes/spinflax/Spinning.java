@@ -12,19 +12,18 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class Spinning extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount(var.INV_FLAX) > 24
-				&& SceneEntities.getLoaded(var.SPINNER) != null
-				&& var.spinFlax;
+				&& SceneEntities.getLoaded(var.SPINNER) != null;
 	}
 
 	@Override
 	public void execute() {
 		var.status = "Spinning...";
 		Camera.setPitch(3);
-		SceneObject spinner = SceneEntities
-				.getNearest(var.SPINNER);
+		SceneObject spinner = SceneEntities.getNearest(var.SPINNER);
 		if (spinner.isOnScreen()
 				&& SceneEntities.getLoaded(var.SPINNER) != null) {
 			spinner.interact("Spin", "Spinning wheel");
@@ -33,8 +32,7 @@ public class Spinning extends Node {
 				Task.sleep(20);
 			}
 			if (Widgets.get(1370).getChild(38).visible()) {
-				Widgets.get(1370).getChild(38)
-						.interact("Make 27 Bow string");
+				Widgets.get(1370).getChild(38).interact("Make 27 Bow string");
 				Timer ti = new Timer(40000);
 				while (ti.isRunning()) {
 					Task.sleep(40);

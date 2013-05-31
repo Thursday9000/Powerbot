@@ -7,11 +7,10 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class AntiBan extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
-		return var.pickupHides
-				&& var.COW_HIDE_ANTI_BAN.contains(Players
-						.getLocal());
+		return var.COW_HIDE_ANTI_BAN.contains(Players.getLocal());
 	}
 
 	@Override

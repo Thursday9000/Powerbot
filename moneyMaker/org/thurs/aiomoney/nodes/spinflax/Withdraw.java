@@ -11,14 +11,12 @@ import org.thurs.aiomoney.resources.Variables;
 
 public class Withdraw extends Node {
 	Variables var = new Variables();
+
 	@Override
 	public boolean activate() {
 		return Inventory.getCount() == 0
-				&& var.spinFlax
-				&& var.SEERS_BANK_AREA.contains(Players
-						.getLocal())
-				&& SceneEntities
-						.getLoaded(var.SEERS_BANKER) != null;
+				&& var.SEERS_BANK_AREA.contains(Players.getLocal())
+				&& SceneEntities.getLoaded(var.SEERS_BANKER) != null;
 	}
 
 	@Override
@@ -31,8 +29,7 @@ public class Withdraw extends Node {
 				Task.sleep(15);
 			}
 			Bank.withdraw(var.INV_FLAX, 27);
-			while (t.isRunning()
-					&& Inventory.getCount(var.INV_FLAX) == 27) {
+			while (t.isRunning() && Inventory.getCount(var.INV_FLAX) == 27) {
 				Task.sleep(15);
 			}
 			Bank.close();
