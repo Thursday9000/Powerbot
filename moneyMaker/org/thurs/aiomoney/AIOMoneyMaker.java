@@ -46,69 +46,6 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 			}
 
 		});
-		// Tar
-		NODES.add(new Pickup());
-		// Flax
-		NODES.add(new FlaxPicking());
-		NODES.add(new FlaxBanking());
-		NODES.add(new ToFlax());
-		NODES.add(new ToBank());
-		// Kit opening
-		NODES.add(new BankKits());
-		NODES.add(new OpenKits());
-		NODES.add(new BankKitsOnStart());
-		// Flax spinning
-		NODES.add(new Spinning());
-		NODES.add(new StringBanking());
-		NODES.add(new ToBankSpin());
-		NODES.add(new ToSpinner());
-		NODES.add(new ClimbLadder());
-		NODES.add(new ClimbDownLadder());
-		NODES.add(new Withdraw());
-		NODES.add(new GlitchFix());
-		// Drink brews
-		NODES.add(new BankBrewsOnStart());
-		NODES.add(new BankBrews());
-		NODES.add(new DrinkBrews());
-		// pickup bones
-		NODES.add(new BoneBank());
-		NODES.add(new PickBones());
-		NODES.add(new WalkToBones());
-		NODES.add(new WalkToBox());
-		NODES.add(new FixDaGlitch());
-		// Cow hide pickup
-		NODES.add(new HideBank());
-		NODES.add(new PickupHides());
-		NODES.add(new WalkToHides());
-		NODES.add(new HidesToBank());
-		NODES.add(new AntiBan());
-		// Feather pickup
-		NODES.add(new PickupFeathers());
-		NODES.add(new FeatherBank());
-		NODES.add(new WalkToFeathers());
-		NODES.add(new FeathersToBank());
-		// Unicorns
-		NODES.add(new KillUnicorns());
-		NODES.add(new BankToUnicorns());
-		NODES.add(new UnicornsToBank());
-		NODES.add(new BankHorns());
-		NODES.add(new WalkBackOnDeath());
-		// Vial Filling
-		NODES.add(new VialFiller());
-		NODES.add(new VialBanker());
-		NODES.add(new InitialVialBank());
-		// Crushing Choc bars
-		NODES.add(new CrushBars());
-		NODES.add(new BankBars());
-		NODES.add(new InitialBankBars());
-		// Wine Drinking
-		NODES.add(new DrinkWine());
-		NODES.add(new BankWine());
-		NODES.add(new BankWineOnStart());
-		// Pie Eating
-		NODES.add(new BankPiesOnStart());
-		NODES.add(new BankPie());
-		NODES.add(new EatThePie());
 
 	}
 
@@ -139,7 +76,7 @@ public class AIOMoneyMaker extends ActiveScript implements PaintListener {
 	}
 
 	// Node
-	private static final LinkedList<Node> NODES = new LinkedList<Node>();
+	public static final LinkedList<Node> NODES = new LinkedList<Node>();
 
 	@Override
 	public int loop() {
