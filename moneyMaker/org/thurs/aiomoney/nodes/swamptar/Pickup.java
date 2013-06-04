@@ -12,7 +12,6 @@ import org.powerbot.game.api.wrappers.node.GroundItem;
 import org.thurs.aiomoney.resources.Variables;
 
 public class Pickup extends Node {
-	
 
 	@Override
 	public boolean activate() {

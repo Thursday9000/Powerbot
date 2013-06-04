@@ -19,8 +19,7 @@ public class CrushBars extends Node {
 	public boolean activate() {
 		Player player = Players.getLocal();
 		return Inventory.getCount(Variables.CHOCOLATE_BAR) == 28
-				&& Variables.VARROCK_BANK.contains(player)
-				&& player.isIdle()
+				&& Variables.VARROCK_BANK.contains(player) && player.isIdle()
 				&& !Bank.isOpen();
 	}
 
@@ -41,19 +40,17 @@ public class CrushBars extends Node {
 		} else {
 			WidgetChild chocBarSelect = Widgets.get(1371, 44).getChild(1);
 			if (chocBarSelect.getTextureId() == -1) {
-					if (chocBarSelect.interact("Select")) {
-				for (Timer t = new Timer(2000); t.isRunning()
-						&& chocBarSelect.getTextureId() == -1; Task
-						.sleep(50))
-					;
-					}
-			} else if (CONFIRM_BUTTON.interact("Make")) {
+				if (chocBarSelect.interact("Select")) {
 					for (Timer t = new Timer(2000); t.isRunning()
-							&& CONFIRM_BUTTON.visible(); Task
+							&& chocBarSelect.getTextureId() == -1; Task
 							.sleep(50))
 						;
 				}
+			} else if (CONFIRM_BUTTON.interact("Make")) {
+				for (Timer t = new Timer(2000); t.isRunning()
+						&& CONFIRM_BUTTON.visible(); Task.sleep(50))
+					;
+			}
 		}
-		Task.sleep(200, 500);
 	}
 }

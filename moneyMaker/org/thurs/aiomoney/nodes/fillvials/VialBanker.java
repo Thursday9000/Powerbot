@@ -20,7 +20,7 @@ public class VialBanker extends Node {
 		if (Bank.isOpen()) {
 			Bank.deposit(Variables.WATER_VIALS, 28);
 			Bank.withdraw(Variables.VIALS, 28);
-			Bank.close();
 		}
+		Bank.close();
 	}
 }

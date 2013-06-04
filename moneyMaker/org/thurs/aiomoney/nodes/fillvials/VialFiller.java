@@ -23,6 +23,7 @@ public class VialFiller extends Node {
 
 	@Override
 	public void execute() {
+		Variables.status = "Filling Vials";
 		Variables.fount = SceneEntities.getNearest(Variables.FOUNTAIN_ID);
 		Item vial = Inventory.getItem(Variables.VIALS);
 		WidgetChild fill = Widgets.get(1371, 5);
