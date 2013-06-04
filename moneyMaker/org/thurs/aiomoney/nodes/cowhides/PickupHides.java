@@ -38,7 +38,7 @@ public class PickupHides extends Node {
 				Camera.turnTo(hide);
 				hide.interact("Take", "Cowhide");
 				Timer t = new Timer(2000);
-				while (t.isRunning() && hide != null) {
+				while (t.isRunning() && hide.validate()) {
 					Task.sleep(10);
 				}
 

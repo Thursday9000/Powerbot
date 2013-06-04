@@ -26,7 +26,7 @@ public class PickupHorns extends Node {
 			Variables.status = "Picking up Horns...";
 			horn.interact("Take", "Unicorn horn");
 			Timer t = new Timer(2000);
-			while (t.isRunning() && horn != null) {
+			while (t.isRunning() && horn.validate()) {
 				Task.sleep(17);
 			}
 

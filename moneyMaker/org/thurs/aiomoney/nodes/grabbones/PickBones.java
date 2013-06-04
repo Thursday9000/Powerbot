@@ -38,7 +38,7 @@ public class PickBones extends Node {
 				Camera.turnTo(bones);
 				bones.interact("Take", "Bones");
 				Timer t = new Timer(1000);
-				while (t.isRunning() && bones != null) {
+				while (t.isRunning() && bones.validate()) {
 					Task.sleep(10);
 				}
 

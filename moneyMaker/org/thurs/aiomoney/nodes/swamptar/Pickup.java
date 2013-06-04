@@ -33,7 +33,7 @@ public class Pickup extends Node {
 			if (tar.isOnScreen()) {
 				tar.interact("Take", "Swamp Tar");
 				Timer t = new Timer(850);
-				while (t.isRunning() && tar != null) {
+				while (t.isRunning() && tar.validate()) {
 					Task.sleep(10);
 				}
 			} else {
