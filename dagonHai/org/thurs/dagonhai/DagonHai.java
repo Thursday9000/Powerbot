@@ -18,6 +18,10 @@ import org.powerbot.script.rt6.ClientContext;
 import org.powerbot.script.rt6.Skills;
 import org.thurs.dagonhai.resources.*;
 import org.thurs.dagonhai.tasks.*;
+import org.thurs.dagonhai.tasks.fighting.Attack;
+import org.thurs.dagonhai.tasks.looting.Pickup;
+import org.thurs.dagonhai.tasks.surviving.Eat;
+import org.thurs.dagonhai.tasks.surviving.Teleport;
 
 @Script.Manifest(name = "DagonHai monk killer", description = "Kills dagonhai monks for 150k exp ph", properties = "topic=1234")
 public class DagonHai extends PollingScript<ClientContext> implements
@@ -48,14 +52,16 @@ public class DagonHai extends PollingScript<ClientContext> implements
 	private final Font font1 = new Font("Arial", 1, 12);
 
 	public void repaint(final Graphics g1) {
-		Variables.expGained = (ctx.skills.experience(Skills.ATTACK)
+	     int startingExperience = 0;
+	     int expGained;
+		expGained = (ctx.skills.experience(Skills.ATTACK)
 				+ ctx.skills.experience(Skills.DEFENSE)
 				+ ctx.skills.experience(Skills.STRENGTH)
 				+ ctx.skills.experience(Skills.MAGIC) + ctx.skills
-					.experience(Skills.RANGE)) - Variables.startingExperience;
-		int kills = Variables.expGained / 226;
+					.experience(Skills.RANGE)) -startingExperience;
+		int kills = expGained / 226;
 		int killsPH = (int) ((kills * 3600000D) / (System.currentTimeMillis() - startTime));
-		int xpPH = (int) ((Variables.expGained * 3600000D) / (System
+		int xpPH = (int) ((expGained * 3600000D) / (System
 				.currentTimeMillis() - startTime));
 
 		Graphics2D g = (Graphics2D) g1;
@@ -64,7 +70,7 @@ public class DagonHai extends PollingScript<ClientContext> implements
 		g.drawString("Runtime: " + getTotalRuntime(), 0, 25);
 		g.drawString("Kills:" + kills, 0, 50);
 		g.drawString("Kills P/H:" + killsPH, 0, 75);
-		g.drawString("XP:" + Variables.expGained, 0, 100);
+		g.drawString("XP:" + expGained, 0, 100);
 		g.drawString("XP P/H:" + xpPH, 0, 124);
 		
 
@@ -81,6 +87,5 @@ public class DagonHai extends PollingScript<ClientContext> implements
 				task.execute();
 			}
 		}
-		return;
 	}
 }

@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+import org.thurs.dagonhai.tasks.looting.Pickup;
+
 //GUI
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
@@ -67,7 +69,7 @@ public class GUI extends JFrame {
 				button1ActionPerformed(e);
 				String chosen = comboBox1.getSelectedItem().toString();
 				if (chosen.equals("Loot Runes!")) {
-					Variables.profit = true;
+					Pickup.profit = true;
 				}
 
 				setVisible(false);

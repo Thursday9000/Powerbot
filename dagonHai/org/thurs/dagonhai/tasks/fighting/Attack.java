@@ -1,12 +1,11 @@
-package org.thurs.dagonhai.tasks;
+package org.thurs.dagonhai.tasks.fighting;
 
 import java.util.LinkedList;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt6.ClientContext;
 import org.powerbot.script.rt6.Npc;
-import org.thurs.dagonhai.resources.Task;
-import org.thurs.dagonhai.resources.Variables;
+import org.thurs.dagonhai.tasks.Task;
 
 public class Attack extends Task<ClientContext> {
 
@@ -15,14 +14,11 @@ public class Attack extends Task<ClientContext> {
 	}
 
 	public boolean activate() {
-		return ctx.npcs.select().id(Variables.ENEMY_IDS).nearest().peek()
-				.valid();
+		return !ctx.npcs.select().id(7138, 7139, 7140, 6363).isEmpty()
+				&& ctx.players.local().inCombat();
 	}
 
 	public void execute() {
-		if (ctx.players.local().inCombat()) {
-			return;
-		}
 		final LinkedList<Npc> npcs = new LinkedList<Npc>();
 		ctx.npcs.addTo(npcs);
 		for (final Npc npc : ctx.npcs) {

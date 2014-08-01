@@ -1,4 +1,4 @@
-package org.thurs.dagonhai.resources;
+package org.thurs.dagonhai.tasks;
 
 import org.powerbot.script.ClientAccessor;
 import org.powerbot.script.ClientContext;
