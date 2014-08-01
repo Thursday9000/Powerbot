@@ -1,7 +1,7 @@
-package org.thursBoner.resources;
+package org.thurs.dagonhai.tasks;
 
 import org.powerbot.script.ClientAccessor;
-import org.powerbot.script.rt4.ClientContext;
+import org.powerbot.script.ClientContext;
 
 public abstract class Task<C extends ClientContext> extends ClientAccessor<C> {
 	public Task(C ctx) {
