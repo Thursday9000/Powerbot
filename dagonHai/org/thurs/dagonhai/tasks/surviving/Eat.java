@@ -6,6 +6,7 @@ import org.thurs.dagonhai.tasks.Task;
 
 public class Eat extends Task<ClientContext> {
 
+	public static int foodID;
 	public Eat(ClientContext ctx) {
 		super(ctx);
 	}

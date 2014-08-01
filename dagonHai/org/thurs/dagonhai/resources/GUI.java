@@ -14,26 +14,38 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 import org.thurs.dagonhai.tasks.looting.Pickup;
+import org.thurs.dagonhai.tasks.surviving.Eat;
 
 //GUI
 @SuppressWarnings("serial")
 public class GUI extends JFrame {
+	public static enum FoodEnum {
+		Shrimp(315), Lobster(379), Swordfish(373), Monkfish(7946), Shark(385), Rocktail(15272);
+
+		FoodEnum(int foodID) {
+			value = foodID;
+		}
+
+		public final int value;
+	}
 
 	public GUI() {
 		initComponents();
 	}
 
 	private void comboBox1ActionPerformed(ActionEvent e) {
-		return;
+	}
+	
+	private void comboBox2ActionPerformed(ActionEvent e) {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) {
-		return;
 	}
 
 	private void initComponents() {
 
 		comboBox1 = new JComboBox<>();
+		final JComboBox comboBox2 = new JComboBox(FoodEnum.values());
 		button1 = new JButton();
 
 		// Main window
@@ -41,11 +53,11 @@ public class GUI extends JFrame {
 		setFont(new Font("Dialog", Font.PLAIN, 14));
 		Container contentPane = getContentPane();
 		contentPane.setLayout(null);
-		setPreferredSize(new Dimension(310, 83));
+		setPreferredSize(new Dimension(310, 110));
 		pack();
 		setLocationRelativeTo(null);
 
-		// Combobox
+		// Combobox 1
 		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
 				"Loot nothing!", "Loot Runes!" }
 
@@ -60,6 +72,18 @@ public class GUI extends JFrame {
 		comboBox1.setBounds(new Rectangle(new Point(15, 15), comboBox1
 				.getPreferredSize()));
 		comboBox1.setSize(new Dimension(200, 20));
+		
+		// Combobox 2
+		comboBox2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				comboBox2ActionPerformed(e);
+			}
+		});
+		contentPane.add(comboBox2);
+		comboBox2.setBounds(new Rectangle(new Point(15, 45), comboBox2
+				.getPreferredSize()));
+		comboBox2.setSize(new Dimension(200, 20));
 
 		// start button
 		button1.setText("Start");
@@ -71,8 +95,23 @@ public class GUI extends JFrame {
 				if (chosen.equals("Loot Runes!")) {
 					Pickup.profit = true;
 				}
-
+				String chosenfood = comboBox2.getSelectedItem().toString();
+				if (chosenfood.equals("Shrimp")) {
+					Eat.foodID = (int)FoodEnum.Shrimp.value;
+				} else if (chosenfood.equals("Lobster")) {
+					Eat.foodID = (int)FoodEnum.Lobster.value;
+				} else if (chosenfood.equals("Swordfish")) {
+					Eat.foodID = (int)FoodEnum.Swordfish.value;
+				} else if (chosenfood.equals("Monkfish")) {
+					Eat.foodID = (int)FoodEnum.Monkfish.value;
+				} else if (chosenfood.equals("Shark")) {
+					Eat.foodID = (int)FoodEnum.Shark.value;
+				} else if (chosenfood.equals("Rocktail")) {
+					Eat.foodID = (int)FoodEnum.Rocktail.value;
+				}
+				System.out.println(Eat.foodID);
 				setVisible(false);
+				
 			}
 		});
 		contentPane.add(button1);
