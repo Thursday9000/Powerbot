@@ -8,7 +8,6 @@ import org.thurs.dagonhai.tasks.Task;
 public class Pickup extends Task<ClientContext> {
 	final GroundItem loot = ctx.groundItems.id(557, 556, 559, 554, 555, 558)
 			.nearest().poll();
-	public static boolean profit = false;
 
 	public Pickup(ClientContext ctx) {
 		super(ctx);
@@ -17,14 +16,16 @@ public class Pickup extends Task<ClientContext> {
 	public boolean activate() {
 		return ctx.backpack.select().count() <= 27
 				&& !ctx.groundItems.select().id(557, 556, 559, 554, 555, 558)
-						.isEmpty() && profit;
+						.isEmpty();
 	}
 
 	public void execute() {
 		if (loot.valid()) {
 			if (loot.inViewport()) {
 				loot.interact("Take", loot.name());
-				Condition.sleep(2000);
+				while (loot.valid()) {
+					Condition.sleep(1500);
+				}
 			} else {
 				ctx.camera.turnTo(loot);
 			}

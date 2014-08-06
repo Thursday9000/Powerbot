@@ -22,28 +22,26 @@ import org.thurs.dagonhai.tasks.fighting.Attack;
 import org.thurs.dagonhai.tasks.looting.Pickup;
 import org.thurs.dagonhai.tasks.surviving.Eat;
 import org.thurs.dagonhai.tasks.surviving.Teleport;
+import org.thurs.dagonhai.resources.GUI;
 
 @Script.Manifest(name = "Dagon'hai Monk Killer", description = "Kills dagonhai monks for 150k exp ph", properties = "topic=1204565")
 public class DagonHai extends PollingScript<ClientContext> implements
 		PaintListener {
+	
+	public static FoodTypes food = null;
 
-	private List<Task> taskList = new ArrayList<Task>();
+	public static List<Task> taskList = new ArrayList<Task>();
 
 	public void start() {
 		SwingUtilities.invokeLater(new Runnable() {
 
 			@Override
 			public void run() {
-				new GUI().setVisible(true);
+				new GUI(ctx).frame.setVisible(true);
 			}
 
 		});
 
-		taskList.add(new Eat(ctx));
-		taskList.add(new Attack(ctx));
-		taskList.add(new Pickup(ctx));
-		taskList.add(new Teleport(ctx));
-		return;
 	}
 
 	long startTime = System.currentTimeMillis();
@@ -80,7 +78,6 @@ public class DagonHai extends PollingScript<ClientContext> implements
 		g.drawLine(p.x - 5, p.y + 5, p.x + 5, p.y - 5);
 	}
 
-	@Override
 	public void poll() {
 		for (Task task : taskList) {
 			if (task.activate()) {

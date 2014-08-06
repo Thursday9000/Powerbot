@@ -1,9 +1,9 @@
 package org.thurs.dagonhai.resources;
 
-public enum FoodEnum {
+public enum FoodTypes {
 	Shrimp(315), Lobster(379), Swordfish(373), Monkfish(7946), Shark(385), Rocktail(
 			15272);
-	FoodEnum(int value) {
+	FoodTypes(int value) {
 		this.value = value;
 	}
 
