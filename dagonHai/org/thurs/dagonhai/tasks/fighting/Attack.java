@@ -14,23 +14,24 @@ public class Attack extends Task<ClientContext> {
 
 	public static final Filter<Npc> monkFilter = new Filter<Npc>() {
 		public boolean accept(final Npc monk) {
-			return monk.name().contains("monk") && !monk.inCombat();
+			return monk.name().contains("Monk") && !monk.inCombat();
 		}
 	};
 
 	public boolean activate() {
-		return !ctx.npcs.isEmpty()
-				&& !ctx.players.local().inCombat();
+		return !ctx.npcs.select().select(monkFilter).isEmpty() && !ctx.players.local().inCombat();
 	}
 
 	public void execute() {
-		Npc monk = ctx.npcs.select(monkFilter).nearest().poll();
+		Npc monk = ctx.npcs.nearest().poll();
 		ctx.camera.turnTo(monk);
 		if (monk.inViewport()) {
 			monk.interact("Attack");
-			while (!ctx.players.local().inCombat()) {
-				Condition.sleep(50);
+			{
+				while (!ctx.players.local().inCombat()) {
+					Condition.sleep(50);
+				}
 			}
-		} 
+		}
 	}
 }
