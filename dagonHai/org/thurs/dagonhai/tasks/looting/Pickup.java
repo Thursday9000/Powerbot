@@ -1,14 +1,13 @@
 package org.thurs.dagonhai.tasks.looting;
 
+import java.util.concurrent.Callable;
+
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt6.ClientContext;
 import org.powerbot.script.rt6.GroundItem;
 import org.thurs.dagonhai.tasks.Task;
 
 public class Pickup extends Task<ClientContext> {
-	final GroundItem loot = ctx.groundItems.id(557, 556, 559, 554, 555, 558)
-			.nearest().poll();
-
 	public Pickup(ClientContext ctx) {
 		super(ctx);
 	}
@@ -20,15 +19,17 @@ public class Pickup extends Task<ClientContext> {
 	}
 
 	public void execute() {
-		if (loot.valid()) {
-			if (loot.inViewport()) {
-				loot.interact("Take", loot.name());
-				while (loot.valid()) {
-					Condition.sleep(1500);
+		final GroundItem loot = ctx.groundItems
+				.id(557, 556, 559, 554, 555, 558).nearest().poll();
+		ctx.camera.turnTo(loot);
+
+		if (loot.interact("Take")) {
+			Condition.wait(new Callable<Boolean>() {
+				@Override
+				public Boolean call() throws Exception {
+					return (!loot.valid());
 				}
-			} else {
-				ctx.camera.turnTo(loot);
-			}
+			});
 		}
 	}
 }

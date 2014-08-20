@@ -1,5 +1,7 @@
 package org.thurs.dagonhai.tasks.fighting;
 
+import java.util.concurrent.Callable;
+
 import org.powerbot.script.Condition;
 import org.powerbot.script.Filter;
 import org.powerbot.script.rt6.ClientContext;
@@ -14,24 +16,25 @@ public class Attack extends Task<ClientContext> {
 
 	public static final Filter<Npc> monkFilter = new Filter<Npc>() {
 		public boolean accept(final Npc monk) {
-			return monk.name().contains("Monk") && !monk.inCombat();
+			return monk.name().contains("Goblin") && !monk.inCombat();
 		}
 	};
 
 	public boolean activate() {
-		return !ctx.npcs.select().select(monkFilter).isEmpty() && !ctx.players.local().inCombat();
+		return !ctx.npcs.select().select(monkFilter).isEmpty()
+				&& !ctx.players.local().inCombat();
 	}
 
 	public void execute() {
-		Npc monk = ctx.npcs.nearest().poll();
+		final Npc monk = ctx.npcs.nearest().poll();
 		ctx.camera.turnTo(monk);
-		if (monk.inViewport()) {
-			monk.interact("Attack");
-			{
-				while (!ctx.players.local().inCombat()) {
-					Condition.sleep(50);
+		if (monk.interact("Attack")) {
+			Condition.wait(new Callable<Boolean>() {
+				@Override
+				public Boolean call() throws Exception {
+					return (!monk.valid());
 				}
-			}
+			});
 		}
 	}
 }

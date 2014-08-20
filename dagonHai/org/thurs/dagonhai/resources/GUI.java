@@ -3,9 +3,9 @@ package org.thurs.dagonhai.resources;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -14,16 +14,18 @@ import javax.swing.JRadioButton;
 
 import org.powerbot.script.rt6.ClientAccessor;
 import org.powerbot.script.rt6.ClientContext;
+import org.thurs.dagonhai.tasks.Task;
 import org.thurs.dagonhai.tasks.surviving.Eat;
 import org.thurs.dagonhai.tasks.surviving.Teleport;
 import org.thurs.dagonhai.tasks.fighting.Attack;
 import org.thurs.dagonhai.tasks.looting.Pickup;
 import org.thurs.dagonhai.resources.FoodType;
-import org.thurs.dagonhai.*;
 
 //GUI
 public class GUI extends ClientAccessor {
-	
+	public static FoodType food = null;
+
+	public static List<Task> taskList = new ArrayList<Task>();
 
 	public GUI(ClientContext ctx) {
 		super(ctx);
@@ -53,7 +55,6 @@ public class GUI extends ClientAccessor {
 		frame.validate();
 		frame.setLocationRelativeTo(null);
 
-
 		content.add(loot);
 
 		// Combobox 2
@@ -74,14 +75,14 @@ public class GUI extends ClientAccessor {
 			public void actionPerformed(ActionEvent e) {
 				button1ActionPerformed(e);
 				if (loot.isEnabled()) {
-					DagonHai.taskList.add(new Pickup(ctx));
+					taskList.add(new Pickup(ctx));
 				}
 
-				DagonHai.food = (FoodType) comboBox2.getSelectedItem();
-				DagonHai.taskList.add(new Eat(ctx));
-				DagonHai.taskList.add(new Attack(ctx));
-				DagonHai.taskList.add(new Teleport(ctx));
-				System.out.println("ID of food: " + DagonHai.food.value);
+				food = (FoodType) comboBox2.getSelectedItem();
+				taskList.add(new Eat(ctx));
+				taskList.add(new Attack(ctx));
+				taskList.add(new Teleport(ctx));
+				System.out.println("ID of food: " + food.value);
 				frame.dispose();
 
 			}
@@ -90,5 +91,5 @@ public class GUI extends ClientAccessor {
 	}
 
 	private JComboBox<String> comboBox1;
-	private JButton button1; 
+	private JButton button1;
 }

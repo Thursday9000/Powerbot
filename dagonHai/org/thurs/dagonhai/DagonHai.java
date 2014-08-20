@@ -6,9 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.SwingUtilities;
 
 import org.powerbot.script.PaintListener;
@@ -16,7 +13,6 @@ import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script;
 import org.powerbot.script.rt6.ClientContext;
 import org.powerbot.script.rt6.Skills;
-import org.thurs.dagonhai.resources.*;
 import org.thurs.dagonhai.tasks.*;
 
 import org.thurs.dagonhai.resources.GUI;
@@ -24,15 +20,12 @@ import org.thurs.dagonhai.resources.GUI;
 @Script.Manifest(name = "Dagon'hai Monk Killer", description = "Kills dagonhai monks for 150k exp ph", properties = "topic=1204565")
 public class DagonHai extends PollingScript<ClientContext> implements
 		PaintListener {
-    int startExp = ctx.skills.experience(ctx.skills.experience(Skills.ATTACK)
+	public int startExp = ctx.skills.experience(ctx.skills
+			.experience(Skills.ATTACK)
 			+ ctx.skills.experience(Skills.DEFENSE)
 			+ ctx.skills.experience(Skills.STRENGTH)
-			+ ctx.skills.experience(Skills.MAGIC) + ctx.skills
-				.experience(Skills.RANGE));
-
-	public static FoodType food = null;
-
-	public static List<Task> taskList = new ArrayList<Task>();
+			+ ctx.skills.experience(Skills.MAGIC)
+			+ ctx.skills.experience(Skills.RANGE));
 
 	public void start() {
 		SwingUtilities.invokeLater(new Runnable() {
@@ -57,11 +50,11 @@ public class DagonHai extends PollingScript<ClientContext> implements
 	private final Font font1 = new Font("Arial", 1, 12);
 
 	public void repaint(final Graphics g1) {
-        int expNow = ctx.skills.experience(Skills.ATTACK)
+		int expNow = ctx.skills.experience(Skills.ATTACK)
 				+ ctx.skills.experience(Skills.DEFENSE)
 				+ ctx.skills.experience(Skills.STRENGTH)
-				+ ctx.skills.experience(Skills.MAGIC) + ctx.skills
-					.experience(Skills.RANGE);
+				+ ctx.skills.experience(Skills.MAGIC)
+				+ ctx.skills.experience(Skills.RANGE);
 		int expGained = expNow - startExp;
 		int kills = expGained / 226;
 		int killsPH = (int) ((kills * 3600000D) / (getTotalRuntime()));
@@ -83,7 +76,7 @@ public class DagonHai extends PollingScript<ClientContext> implements
 	}
 
 	public void poll() {
-		for (Task task : taskList) {
+		for (Task task : GUI.taskList) {
 			if (task.activate()) {
 				task.execute();
 			}
